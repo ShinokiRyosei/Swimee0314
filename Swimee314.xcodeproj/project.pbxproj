@@ -14,6 +14,7 @@
 		394709C11C96C308002FE06F /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394709C01C96C308002FE06F /* Settings.swift */; };
 		394709C41C96C5F6002FE06F /* MemoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394709C31C96C5F6002FE06F /* MemoModel.swift */; };
 		394709C71C96D7E5002FE06F /* TravelTitlesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394709C61C96D7E5002FE06F /* TravelTitlesModel.swift */; };
+		394709C91C970120002FE06F /* CreatePlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394709C81C970120002FE06F /* CreatePlanViewController.swift */; };
 		4DDB26241C964ECF005A4EA2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDB26231C964ECF005A4EA2 /* AppDelegate.swift */; };
 		4DDB26261C964ECF005A4EA2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDB26251C964ECF005A4EA2 /* ViewController.swift */; };
 		4DDB26291C964ECF005A4EA2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DDB26271C964ECF005A4EA2 /* Main.storyboard */; };
@@ -58,6 +59,7 @@
 		394709C01C96C308002FE06F /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		394709C31C96C5F6002FE06F /* MemoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoModel.swift; sourceTree = "<group>"; };
 		394709C61C96D7E5002FE06F /* TravelTitlesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravelTitlesModel.swift; sourceTree = "<group>"; };
+		394709C81C970120002FE06F /* CreatePlanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePlanViewController.swift; sourceTree = "<group>"; };
 		4DDB26201C964ECF005A4EA2 /* Swimee314.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swimee314.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DDB26231C964ECF005A4EA2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4DDB26251C964ECF005A4EA2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				4DDB26251C964ECF005A4EA2 /* ViewController.swift */,
 				4DDB26551C966062005A4EA2 /* MemoViewController.swift */,
 				4DDB26651C967B23005A4EA2 /* MemoListViewController.swift */,
+				394709C81C970120002FE06F /* CreatePlanViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -452,6 +455,7 @@
 				394709BD1C96C0B8002FE06F /* MemoListTableViewCell.swift in Sources */,
 				4DDB26631C967A5B005A4EA2 /* README.md in Sources */,
 				394709C41C96C5F6002FE06F /* MemoModel.swift in Sources */,
+				394709C91C970120002FE06F /* CreatePlanViewController.swift in Sources */,
 				4DDB26641C967A5B005A4EA2 /* StoryboardHelper.swift in Sources */,
 				394709C11C96C308002FE06F /* Settings.swift in Sources */,
 				394709B81C96BC55002FE06F /* ScheduleListViewController.swift in Sources */,
