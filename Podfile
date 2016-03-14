@@ -8,6 +8,7 @@ pod 'RealmSwift'
 pod 'Parse'
 pod 'PageMenu'
 pod 'CTCheckbox'
+pod 'SVProgressHUD'
 end
 
 target 'Swimee314Tests' do

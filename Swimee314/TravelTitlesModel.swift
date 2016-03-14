@@ -12,10 +12,13 @@ import Parse
 class TravelTitles: PFObject, PFSubclassing {
     
     @NSManaged var title: String!
+    @NSManaged var days: Int!
     
     //送るデータのかたまり
-    init() {
+    init(title: String, days: Int) {
         super.init()
+        self.title = title
+        self.days = days
         
     }
     
