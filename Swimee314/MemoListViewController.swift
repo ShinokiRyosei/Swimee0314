@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MemoListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class MemoListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate,UITextViewDelegate {
     
     @IBOutlet var table: UITableView!
 
@@ -21,6 +21,13 @@ class MemoListViewController: UIViewController, UITableViewDataSource, UITableVi
         
         table.delegate = self
         table.dataSource = self
+        
+        self.segueToMemoVC()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.segueToMemoVC()
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,7 +63,4 @@ class MemoListViewController: UIViewController, UITableViewDataSource, UITableVi
             
         }
     }
-    
-    
-
 }
