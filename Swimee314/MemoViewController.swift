@@ -21,7 +21,7 @@ class MemoViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    @IBOutlet var saveMemo(){
+    @IBAction func saveMemo(){
     
     }
     

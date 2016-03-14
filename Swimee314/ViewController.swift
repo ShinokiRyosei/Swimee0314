@@ -7,13 +7,27 @@
 //
 
 import UIKit
+import PageMenu
 
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, CAPSPageMenuDelegate {
+    //PageMenuのインスタンス
+    var pageMenu: CAPSPageMenu!
+    
+    var travelDays: Int!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        var controllersArray = [UIViewController]()
+        
+        for i in 1 ... travelDays {
+            let controller = ScheduleListViewController(nibName: "ScheduleListViewController", bundle: nil)
+            controller.title = "\(i) 日目"
+            controllersArray.append(controller)
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
