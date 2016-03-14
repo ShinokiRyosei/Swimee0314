@@ -27,6 +27,9 @@ class CreatePlanViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    func textFieldDidBeginEditing(textField: UITextField) {
+        textField.resignFirstResponder()
+    }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
