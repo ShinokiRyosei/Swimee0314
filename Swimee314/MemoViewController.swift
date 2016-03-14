@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 import Realm
 
-class MemoViewController: UIViewController {
+class MemoViewController: UIViewController, UITextViewDelegate {
     @IBOutlet var titleTextField:UITextField!
     @IBOutlet var contentTextView:UITextView!
     
@@ -19,6 +19,13 @@ class MemoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        contentTextView.delegate = self
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        contentTextView.resignFirstResponder()
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,6 +40,7 @@ class MemoViewController: UIViewController {
             realm.add(myMemo)
         }
     }
+    
     
     
 
