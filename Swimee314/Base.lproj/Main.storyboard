@@ -72,10 +72,17 @@
                     <view key="view" contentMode="scaleToFill" id="4CO-uu-yef">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qII-8z-BPg">
+                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="OOA-eU-mdj"/>
                     <connections>
+                        <outlet property="table" destination="qII-8z-BPg" id="eOD-wY-df0"/>
                         <segue destination="YmQ-sp-qiK" kind="push" identifier="toMemoVC" id="iu5-Wl-ozK"/>
                     </connections>
                 </viewController>
@@ -100,7 +107,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mnF-f2-V54" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1354" y="324"/>
+            <point key="canvasLocation" x="1354" y="315"/>
         </scene>
     </scenes>
 </document>

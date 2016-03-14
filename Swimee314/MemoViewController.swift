@@ -42,6 +42,14 @@ class MemoViewController: UIViewController, UITextViewDelegate {
         }
     }
     
+    func textViewDidEndEditing(textView: UITextView) {
+        textView.resignFirstResponder()
+    }
+    
+    func textViewShouldBeginEditing(textView: UITextView) -> Bool {
+        textView.resignFirstResponder()
+        return true
+    }
     
     
 

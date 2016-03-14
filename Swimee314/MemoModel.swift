@@ -10,6 +10,7 @@ import UIKit
 import Realm
 import RealmSwift
 
+//Memo用のRealmのモデル
 class Memo: Object {
     dynamic var memo = ""
     dynamic var number = 0
