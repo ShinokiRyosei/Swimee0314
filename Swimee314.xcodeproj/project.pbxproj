@@ -14,6 +14,16 @@
 		4DDB262E1C964ECF005A4EA2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DDB262C1C964ECF005A4EA2 /* LaunchScreen.storyboard */; };
 		4DDB26391C964ECF005A4EA2 /* Swimee314Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDB26381C964ECF005A4EA2 /* Swimee314Tests.swift */; };
 		4DDB26441C964ECF005A4EA2 /* Swimee314UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDB26431C964ECF005A4EA2 /* Swimee314UITests.swift */; };
+		4DDB26541C9652A6005A4EA2 /* 3.5inch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DDB26531C9652A5005A4EA2 /* 3.5inch.storyboard */; };
+		4DDB26561C966062005A4EA2 /* MemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDB26551C966062005A4EA2 /* MemoViewController.swift */; };
+		4DDB265F1C967A5B005A4EA2 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 4DDB26581C967A5B005A4EA2 /* .gitignore */; };
+		4DDB26601C967A5B005A4EA2 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DDB265A1C967A5B005A4EA2 /* Default-568h@2x.png */; };
+		4DDB26611C967A5B005A4EA2 /* Default-667h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DDB265B1C967A5B005A4EA2 /* Default-667h@2x.png */; };
+		4DDB26621C967A5B005A4EA2 /* Default-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DDB265C1C967A5B005A4EA2 /* Default-736h@3x.png */; };
+		4DDB26631C967A5B005A4EA2 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 4DDB265D1C967A5B005A4EA2 /* README.md */; };
+		4DDB26641C967A5B005A4EA2 /* StoryboardHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDB265E1C967A5B005A4EA2 /* StoryboardHelper.swift */; };
+		4DDB26661C967B23005A4EA2 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDB26651C967B23005A4EA2 /* TableViewController.swift */; };
+		D8332C98293F247E15501DB7 /* Pods_Swimee314.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9F7C474666080B2C0A27A6F /* Pods_Swimee314.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +57,18 @@
 		4DDB263F1C964ECF005A4EA2 /* Swimee314UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Swimee314UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DDB26431C964ECF005A4EA2 /* Swimee314UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swimee314UITests.swift; sourceTree = "<group>"; };
 		4DDB26451C964ECF005A4EA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4DDB26531C9652A5005A4EA2 /* 3.5inch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = 3.5inch.storyboard; sourceTree = "<group>"; };
+		4DDB26551C966062005A4EA2 /* MemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoViewController.swift; sourceTree = "<group>"; };
+		4DDB26581C967A5B005A4EA2 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		4DDB265A1C967A5B005A4EA2 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		4DDB265B1C967A5B005A4EA2 /* Default-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-667h@2x.png"; sourceTree = "<group>"; };
+		4DDB265C1C967A5B005A4EA2 /* Default-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-736h@3x.png"; sourceTree = "<group>"; };
+		4DDB265D1C967A5B005A4EA2 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		4DDB265E1C967A5B005A4EA2 /* StoryboardHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardHelper.swift; sourceTree = "<group>"; };
+		4DDB26651C967B23005A4EA2 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		AF91CE0863672BEBD68CFCC7 /* Pods-Swimee314.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swimee314.release.xcconfig"; path = "Pods/Target Support Files/Pods-Swimee314/Pods-Swimee314.release.xcconfig"; sourceTree = "<group>"; };
+		B9F7C474666080B2C0A27A6F /* Pods_Swimee314.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swimee314.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA126B422DB9B400EECD2073 /* Pods-Swimee314.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swimee314.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Swimee314/Pods-Swimee314.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8332C98293F247E15501DB7 /* Pods_Swimee314.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +97,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4085A656D05190320313A21E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DA126B422DB9B400EECD2073 /* Pods-Swimee314.debug.xcconfig */,
+				AF91CE0863672BEBD68CFCC7 /* Pods-Swimee314.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		4DDB26171C964ECF005A4EA2 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +113,8 @@
 				4DDB26371C964ECF005A4EA2 /* Swimee314Tests */,
 				4DDB26421C964ECF005A4EA2 /* Swimee314UITests */,
 				4DDB26211C964ECF005A4EA2 /* Products */,
+				4085A656D05190320313A21E /* Pods */,
+				F3A2FB7A01EE5612FDC591CC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,12 +131,16 @@
 		4DDB26221C964ECF005A4EA2 /* Swimee314 */ = {
 			isa = PBXGroup;
 			children = (
+				4DDB26571C967A5B005A4EA2 /* StoryboardHelper-master */,
 				4DDB26231C964ECF005A4EA2 /* AppDelegate.swift */,
+				4DDB26531C9652A5005A4EA2 /* 3.5inch.storyboard */,
 				4DDB26251C964ECF005A4EA2 /* ViewController.swift */,
 				4DDB26271C964ECF005A4EA2 /* Main.storyboard */,
 				4DDB262A1C964ECF005A4EA2 /* Assets.xcassets */,
 				4DDB262C1C964ECF005A4EA2 /* LaunchScreen.storyboard */,
 				4DDB262F1C964ECF005A4EA2 /* Info.plist */,
+				4DDB26551C966062005A4EA2 /* MemoViewController.swift */,
+				4DDB26651C967B23005A4EA2 /* TableViewController.swift */,
 			);
 			path = Swimee314;
 			sourceTree = "<group>";
@@ -125,6 +163,35 @@
 			path = Swimee314UITests;
 			sourceTree = "<group>";
 		};
+		4DDB26571C967A5B005A4EA2 /* StoryboardHelper-master */ = {
+			isa = PBXGroup;
+			children = (
+				4DDB26581C967A5B005A4EA2 /* .gitignore */,
+				4DDB26591C967A5B005A4EA2 /* Defaults */,
+				4DDB265D1C967A5B005A4EA2 /* README.md */,
+				4DDB265E1C967A5B005A4EA2 /* StoryboardHelper.swift */,
+			);
+			path = "StoryboardHelper-master";
+			sourceTree = "<group>";
+		};
+		4DDB26591C967A5B005A4EA2 /* Defaults */ = {
+			isa = PBXGroup;
+			children = (
+				4DDB265A1C967A5B005A4EA2 /* Default-568h@2x.png */,
+				4DDB265B1C967A5B005A4EA2 /* Default-667h@2x.png */,
+				4DDB265C1C967A5B005A4EA2 /* Default-736h@3x.png */,
+			);
+			path = Defaults;
+			sourceTree = "<group>";
+		};
+		F3A2FB7A01EE5612FDC591CC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B9F7C474666080B2C0A27A6F /* Pods_Swimee314.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +199,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4DDB26481C964ECF005A4EA2 /* Build configuration list for PBXNativeTarget "Swimee314" */;
 			buildPhases = (
+				F03386E3D7FC0A214B48B1DA /* Check Pods Manifest.lock */,
 				4DDB261C1C964ECF005A4EA2 /* Sources */,
 				4DDB261D1C964ECF005A4EA2 /* Frameworks */,
 				4DDB261E1C964ECF005A4EA2 /* Resources */,
+				C44BF1301983E083FB92DC07 /* Embed Pods Frameworks */,
+				4FC8439A4B1A6F69726D40A5 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -232,9 +302,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DDB265F1C967A5B005A4EA2 /* .gitignore in Resources */,
 				4DDB262E1C964ECF005A4EA2 /* LaunchScreen.storyboard in Resources */,
+				4DDB26611C967A5B005A4EA2 /* Default-667h@2x.png in Resources */,
+				4DDB26621C967A5B005A4EA2 /* Default-736h@3x.png in Resources */,
 				4DDB262B1C964ECF005A4EA2 /* Assets.xcassets in Resources */,
+				4DDB26541C9652A6005A4EA2 /* 3.5inch.storyboard in Resources */,
 				4DDB26291C964ECF005A4EA2 /* Main.storyboard in Resources */,
+				4DDB26601C967A5B005A4EA2 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,13 +329,65 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4FC8439A4B1A6F69726D40A5 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Swimee314/Pods-Swimee314-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C44BF1301983E083FB92DC07 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Swimee314/Pods-Swimee314-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F03386E3D7FC0A214B48B1DA /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4DDB261C1C964ECF005A4EA2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				4DDB26261C964ECF005A4EA2 /* ViewController.swift in Sources */,
+				4DDB26661C967B23005A4EA2 /* TableViewController.swift in Sources */,
 				4DDB26241C964ECF005A4EA2 /* AppDelegate.swift in Sources */,
+				4DDB26631C967A5B005A4EA2 /* README.md in Sources */,
+				4DDB26641C967A5B005A4EA2 /* StoryboardHelper.swift in Sources */,
+				4DDB26561C966062005A4EA2 /* MemoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,6 +525,7 @@
 		};
 		4DDB26491C964ECF005A4EA2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DA126B422DB9B400EECD2073 /* Pods-Swimee314.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Swimee314/Info.plist;
@@ -409,6 +537,7 @@
 		};
 		4DDB264A1C964ECF005A4EA2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AF91CE0863672BEBD68CFCC7 /* Pods-Swimee314.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Swimee314/Info.plist;
@@ -485,6 +614,7 @@
 				4DDB264A1C964ECF005A4EA2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4DDB264B1C964ECF005A4EA2 /* Build configuration list for PBXNativeTarget "Swimee314Tests" */ = {
 			isa = XCConfigurationList;
@@ -493,6 +623,7 @@
 				4DDB264D1C964ECF005A4EA2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4DDB264E1C964ECF005A4EA2 /* Build configuration list for PBXNativeTarget "Swimee314UITests" */ = {
 			isa = XCConfigurationList;
@@ -501,6 +632,7 @@
 				4DDB26501C964ECF005A4EA2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
