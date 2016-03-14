@@ -13,6 +13,7 @@
 		394709BE1C96C0B8002FE06F /* MemoListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 394709BC1C96C0B8002FE06F /* MemoListTableViewCell.xib */; };
 		394709C11C96C308002FE06F /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394709C01C96C308002FE06F /* Settings.swift */; };
 		394709C41C96C5F6002FE06F /* MemoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394709C31C96C5F6002FE06F /* MemoModel.swift */; };
+		394709C71C96D7E5002FE06F /* TravelTitles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394709C61C96D7E5002FE06F /* TravelTitles.swift */; };
 		4DDB26241C964ECF005A4EA2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDB26231C964ECF005A4EA2 /* AppDelegate.swift */; };
 		4DDB26261C964ECF005A4EA2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDB26251C964ECF005A4EA2 /* ViewController.swift */; };
 		4DDB26291C964ECF005A4EA2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DDB26271C964ECF005A4EA2 /* Main.storyboard */; };
@@ -56,6 +57,7 @@
 		394709BC1C96C0B8002FE06F /* MemoListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MemoListTableViewCell.xib; sourceTree = "<group>"; };
 		394709C01C96C308002FE06F /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		394709C31C96C5F6002FE06F /* MemoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoModel.swift; sourceTree = "<group>"; };
+		394709C61C96D7E5002FE06F /* TravelTitles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravelTitles.swift; sourceTree = "<group>"; };
 		4DDB26201C964ECF005A4EA2 /* Swimee314.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swimee314.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DDB26231C964ECF005A4EA2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4DDB26251C964ECF005A4EA2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				394709C31C96C5F6002FE06F /* MemoModel.swift */,
+				394709C61C96D7E5002FE06F /* TravelTitles.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -443,6 +446,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DDB26261C964ECF005A4EA2 /* ViewController.swift in Sources */,
+				394709C71C96D7E5002FE06F /* TravelTitles.swift in Sources */,
 				4DDB26661C967B23005A4EA2 /* MemoListViewController.swift in Sources */,
 				4DDB26241C964ECF005A4EA2 /* AppDelegate.swift in Sources */,
 				394709BD1C96C0B8002FE06F /* MemoListTableViewCell.swift in Sources */,
