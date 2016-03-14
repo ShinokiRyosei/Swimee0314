@@ -90,6 +90,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-Swimee314/Parse.framework"
   install_framework "Pods-Swimee314/Realm.framework"
   install_framework "Pods-Swimee314/RealmSwift.framework"
+  install_framework "Pods-Swimee314/SVProgressHUD.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-Swimee314/Bolts.framework"
@@ -98,4 +99,5 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-Swimee314/Parse.framework"
   install_framework "Pods-Swimee314/Realm.framework"
   install_framework "Pods-Swimee314/RealmSwift.framework"
+  install_framework "Pods-Swimee314/SVProgressHUD.framework"
 fi
