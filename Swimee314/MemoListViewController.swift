@@ -8,10 +8,10 @@
 
 import UIKit
 
-class MemoListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate,UITextViewDelegate {
+class MemoListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
     @IBOutlet var table: UITableView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
