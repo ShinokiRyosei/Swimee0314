@@ -148,6 +148,14 @@
 			name = CustomClass;
 			sourceTree = "<group>";
 		};
+		394709C51C96C7F5002FE06F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				394709C31C96C5F6002FE06F /* MemoModel.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		4085A656D05190320313A21E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -190,7 +198,7 @@
 				4DDB262F1C964ECF005A4EA2 /* Info.plist */,
 				394709BF1C96C0C1002FE06F /* CustomXIB */,
 				394709C21C96C367002FE06F /* CustomClass */,
-				394709C31C96C5F6002FE06F /* MemoModel.swift */,
+				394709C51C96C7F5002FE06F /* Models */,
 			);
 			path = Swimee314;
 			sourceTree = "<group>";
