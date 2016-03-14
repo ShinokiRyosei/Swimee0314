@@ -1,0 +1,6 @@
+framework module CTCheckbox {
+  umbrella header "CTCheckbox-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -4,8 +4,10 @@
 use_frameworks!
 
 target 'Swimee314' do
-pod ’RealmSwift’
-pod ’Parse’
+pod 'RealmSwift'
+pod 'Parse'
+pod 'PageMenu'
+pod 'CTCheckbox'
 end
 
 target 'Swimee314Tests' do
