@@ -17,6 +17,8 @@ class MemoListViewController: UIViewController, UITableViewDataSource, UITableVi
 
         // Do any additional setup after loading the view.
         
+        table.registerNib(UINib(nibName: "MemoListTableViewCell", bundle: nil), forCellReuseIdentifier: "MemoListCell")
+        
         table.delegate = self
         table.dataSource = self
     }
@@ -28,7 +30,8 @@ class MemoListViewController: UIViewController, UITableViewDataSource, UITableVi
     
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//        let cell 
+        let cell = table.dequeueReusableCellWithIdentifier("", forIndexPath: indexPath) as! MemoListTableViewCell
+        return cell
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
