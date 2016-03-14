@@ -34,8 +34,9 @@ class MemoViewController: UIViewController, UITextViewDelegate {
     }
     @IBAction func saveMemo(){
     
+        guard let text = contentTextView.text else { return }
         let myMemo = Memo()
-        myMemo.memo = contentTextView.text
+        myMemo.memo = text
         try! realm.write {
             realm.add(myMemo)
         }
