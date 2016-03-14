@@ -76,7 +76,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="OOA-eU-mdj"/>
                     <connections>
-                        <segue destination="YmQ-sp-qiK" kind="push" id="iu5-Wl-ozK"/>
+                        <segue destination="YmQ-sp-qiK" kind="push" identifier="toMemoVC" id="iu5-Wl-ozK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k8u-j8-kDp" userLabel="First Responder" sceneMemberID="firstResponder"/>

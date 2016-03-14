@@ -29,13 +29,32 @@ class MemoListViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
 
+    //繰り返すCellのメソッド
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = table.dequeueReusableCellWithIdentifier("", forIndexPath: indexPath) as! MemoListTableViewCell
+        let cell = table.dequeueReusableCellWithIdentifier("MemoListCell", forIndexPath: indexPath) as! MemoListTableViewCell
         return cell
     }
     
+    //セルの数のメソッド
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
+    }
+    
+    //セルがタップされたときに呼ばれるメソッド
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        segueToMemoVC()
+    }
+    
+    //MemoViewControllerへの遷移メソッド
+    private func segueToMemoVC() {
+        self.performSegueWithIdentifier("toMemoVC", sender: nil)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        //MemoViewControllerへの遷移時に渡すもののメソッド
+        if segue.identifier == "toMemoVC" {
+            
+        }
     }
     
     
