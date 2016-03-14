@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,6 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let storyboard: UIStoryboard = StoryboardHelper.adjust()
         window!.rootViewController = storyboard.instantiateInitialViewController()! as UIViewController
         self.window?.makeKeyAndVisible()
+        
+        Parse.setApplicationId("riRGtcOnxSJzhmf8RjehBiJ5ZKsVzb8sea2m1TFn", clientKey: "H9FEUCXwyGPVHmIfAttBJqFUi4ZQdyoHDAOrJTYP")
 
         return true
     }
