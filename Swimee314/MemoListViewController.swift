@@ -9,11 +9,16 @@
 import UIKit
 
 class MemoListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    @IBOutlet var table: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        table.delegate = self
+        table.dataSource = self
     }
 
     override func didReceiveMemoryWarning() {

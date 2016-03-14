@@ -101,6 +101,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		394709B91C96C035002FE06F /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				4DDB26531C9652A5005A4EA2 /* 3.5inch.storyboard */,
+				4DDB26271C964ECF005A4EA2 /* Main.storyboard */,
+				4DDB262C1C964ECF005A4EA2 /* LaunchScreen.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		394709BA1C96C04E002FE06F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4DDB26251C964ECF005A4EA2 /* ViewController.swift */,
+				4DDB26551C966062005A4EA2 /* MemoViewController.swift */,
+				4DDB26651C967B23005A4EA2 /* MemoListViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		4085A656D05190320313A21E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -137,14 +157,10 @@
 			children = (
 				4DDB26571C967A5B005A4EA2 /* StoryboardHelper-master */,
 				4DDB26231C964ECF005A4EA2 /* AppDelegate.swift */,
-				4DDB26531C9652A5005A4EA2 /* 3.5inch.storyboard */,
-				4DDB26251C964ECF005A4EA2 /* ViewController.swift */,
-				4DDB26271C964ECF005A4EA2 /* Main.storyboard */,
+				394709B91C96C035002FE06F /* Storyboards */,
+				394709BA1C96C04E002FE06F /* Controllers */,
 				4DDB262A1C964ECF005A4EA2 /* Assets.xcassets */,
-				4DDB262C1C964ECF005A4EA2 /* LaunchScreen.storyboard */,
 				4DDB262F1C964ECF005A4EA2 /* Info.plist */,
-				4DDB26551C966062005A4EA2 /* MemoViewController.swift */,
-				4DDB26651C967B23005A4EA2 /* MemoListViewController.swift */,
 				394709B51C96BC12002FE06F /* ScheduleListViewController.xib */,
 				394709B71C96BC55002FE06F /* ScheduleListViewController.swift */,
 			);
