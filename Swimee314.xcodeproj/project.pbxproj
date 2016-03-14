@@ -11,6 +11,7 @@
 		394709B81C96BC55002FE06F /* ScheduleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394709B71C96BC55002FE06F /* ScheduleListViewController.swift */; };
 		394709BD1C96C0B8002FE06F /* MemoListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394709BB1C96C0B8002FE06F /* MemoListTableViewCell.swift */; };
 		394709BE1C96C0B8002FE06F /* MemoListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 394709BC1C96C0B8002FE06F /* MemoListTableViewCell.xib */; };
+		394709C11C96C308002FE06F /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394709C01C96C308002FE06F /* Settings.swift */; };
 		4DDB26241C964ECF005A4EA2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDB26231C964ECF005A4EA2 /* AppDelegate.swift */; };
 		4DDB26261C964ECF005A4EA2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDB26251C964ECF005A4EA2 /* ViewController.swift */; };
 		4DDB26291C964ECF005A4EA2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DDB26271C964ECF005A4EA2 /* Main.storyboard */; };
@@ -52,6 +53,7 @@
 		394709B71C96BC55002FE06F /* ScheduleListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleListViewController.swift; sourceTree = "<group>"; };
 		394709BB1C96C0B8002FE06F /* MemoListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoListTableViewCell.swift; sourceTree = "<group>"; };
 		394709BC1C96C0B8002FE06F /* MemoListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MemoListTableViewCell.xib; sourceTree = "<group>"; };
+		394709C01C96C308002FE06F /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		4DDB26201C964ECF005A4EA2 /* Swimee314.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swimee314.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DDB26231C964ECF005A4EA2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4DDB26251C964ECF005A4EA2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 				4DDB262A1C964ECF005A4EA2 /* Assets.xcassets */,
 				4DDB262F1C964ECF005A4EA2 /* Info.plist */,
 				394709BF1C96C0C1002FE06F /* CustomXIB */,
+				394709C01C96C308002FE06F /* Settings.swift */,
 			);
 			path = Swimee314;
 			sourceTree = "<group>";
@@ -426,6 +429,7 @@
 				394709BD1C96C0B8002FE06F /* MemoListTableViewCell.swift in Sources */,
 				4DDB26631C967A5B005A4EA2 /* README.md in Sources */,
 				4DDB26641C967A5B005A4EA2 /* StoryboardHelper.swift in Sources */,
+				394709C11C96C308002FE06F /* Settings.swift in Sources */,
 				394709B81C96BC55002FE06F /* ScheduleListViewController.swift in Sources */,
 				4DDB26561C966062005A4EA2 /* MemoViewController.swift in Sources */,
 			);
