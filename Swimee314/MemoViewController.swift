@@ -11,6 +11,7 @@ import RealmSwift
 import Realm
 
 class MemoViewController: UIViewController, UITextViewDelegate {
+    
     @IBOutlet var titleTextField:UITextField!
     @IBOutlet var contentTextView:UITextView!
     

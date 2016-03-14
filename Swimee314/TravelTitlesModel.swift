@@ -11,6 +11,8 @@ import Parse
 
 class TravelTitles: PFObject, PFSubclassing {
     
+    @NSManaged var title: String!
+    
     //送るデータのかたまり
     init() {
         super.init()
