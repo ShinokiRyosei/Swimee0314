@@ -7,10 +7,14 @@
 //
 
 import UIKit
+import RealmSwift
+import Realm
 
 class MemoViewController: UIViewController {
     @IBOutlet var titleTextField:UITextField!
     @IBOutlet var contentTextView:UITextView!
+    
+    let realm = try! Realm()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +27,11 @@ class MemoViewController: UIViewController {
     }
     @IBAction func saveMemo(){
     
+        let myMemo = Memo()
+        myMemo.memo = contentTextView.text
+        try! realm.write {
+            realm.add(myMemo)
+        }
     }
     
 
