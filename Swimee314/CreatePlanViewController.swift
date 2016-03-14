@@ -10,7 +10,7 @@ import UIKit
 import Parse
 import ActionSheetPicker_3_0
 
-class CreatePlanViewController: UIViewController, UITextFieldDelegate {
+class CreatePlanViewController: UIViewController, UITextFieldDelegate, UIActionSheetDelegate {
 
     @IBOutlet weak var projectTextField: UITextField!
     @IBOutlet weak var daysTextField: UITextField!
@@ -53,11 +53,28 @@ class CreatePlanViewController: UIViewController, UITextFieldDelegate {
             daysArray.append(i)
         }
         
-        ActionSheetStringPicker.showPickerWithTitle("旅行の日数を選んでください", rows: daysArray, initialSelection: 0, target: "decideDays", successAction: nil, cancelAction: nil, origin: sender)
+//        ActionSheetStringPicker.showPickerWithTitle("旅行の日数を選んでください", rows: daysArray, initialSelection: 0, target: "decideDays", successAction: nil, cancelAction: nil, origin: sender)
+        let actionSheet = ActionSheetStringPicker(title: "旅行の日数を選んでください", rows: daysArray, initialSelection: 0, doneBlock: { (picker, selectedIndex, id) -> Void in self.decideDays(selectedIndex+1)
+            }, cancelBlock: nil, origin: sender)
+        actionSheet.showActionSheetPicker()
+//        let actionSheet = ActionSheetStringPicker(title: "choice person", rows: daysArray, initialSelection: 0, doneBlock: {(picker, selectedIndex, id) -> Void in print("picker...\(picker), selectedIndex...\(selectedIndex), id...\(id)")
+//            
+//            self.personNumber = selectedIndex + 1
+//            self.personLabel.text = person[selectedIndex] as! String
+//            self.Egg()
+//            
+//            }, cancelBlock: { (picker) -> Void in
+//                print("\(picker)")
+//            }, origin: sender)
+//        
+//        
+//        
+//        
+//        actionSheet.showActionSheetPicker()
     }
     
-    func decideDays() {
-        daysTextField.text = ""
+    func decideDays(id: Int) {
+        daysTextField.text = "\(id)日"
     }
     
     
