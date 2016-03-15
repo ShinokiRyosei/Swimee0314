@@ -75,14 +75,16 @@ class CreatePlanViewController: UIViewController, UITextFieldDelegate, UIActionS
             realmModel.objectId = travel!
             realmModel.days = Int(day)!
             
-            try! realm.write({ () -> Void in
-                realm.add(realmModel)
-            })
+            
             
             
         
             SVProgressHUD.showSuccessWithStatus("作成完了")
+            try! realm.write({
+                realm.add(realmModel)
+            })
             self.tabBarController?.selectedIndex = 2
+            
         }
         
     }
