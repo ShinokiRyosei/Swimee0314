@@ -43,9 +43,18 @@ class MemoViewController: UIViewController, UITextViewDelegate,UIScrollViewDeleg
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        let notificationCenter = NSNotificationCenter.defaultCenter()
-        notificationCenter.addObserver(self, selector: "handleKeyboardWillShowNotification:", name: UIKeyboardWillShowNotification, object: nil)
-        notificationCenter.addObserver(self, selector: "handleKeyboardWillHideNotification:", name: UIKeyboardWillHideNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self,
+            selector: "keyboardWillBeShown:",
+            name: UIKeyboardWillShowNotification,
+            object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self,
+            selector: "keyboardWillBeHidden:",
+            name: UIKeyboardWillHideNotification,
+            object: nil)
+        
+//        let notificationCenter = NSNotificationCenter.defaultCenter()
+//        notificationCenter.addObserver(self, selector: "handleKeyboardWillShowNotification:", name: UIKeyboardWillShowNotification, object: nil)
+//        notificationCenter.addObserver(self, selector: "handleKeyboardWillHideNotification:", name: UIKeyboardWillHideNotification, object: nil)
     }
     
     func handleKeyboardWillShowNotification(notification: NSNotification) {
@@ -68,11 +77,31 @@ class MemoViewController: UIViewController, UITextViewDelegate,UIScrollViewDeleg
     // Viewが非表示になるたびに呼び出されるメソッド
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
+        
+        NSNotificationCenter.defaultCenter().removeObserver(self,
+            name: UIKeyboardWillShowNotification,
+            object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self,
+            name: UIKeyboardWillHideNotification,
+            object: nil)
+        
         // NSNotificationCenterの解除処理
         let notificationCenter = NSNotificationCenter.defaultCenter()
         notificationCenter.removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
         notificationCenter.removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
     }
+    
+    func keyboardWillBeShown(notification: NSNotification) {
+    }
+    
+    func keyboardWillBeHidden(notification: NSNotification) {
+    }
+    
+    func textViewShouldReturn(textField: UITextView) -> Bool {
+        textView.resignFirstResponder()
+        return true
+    }
+    
     @IBAction func saveMemo(){
         guard let text = contentTextView.text else { return }
         let myMemo = Memo()
