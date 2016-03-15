@@ -13,13 +13,12 @@
 		394709BE1C96C0B8002FE06F /* MemoListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 394709BC1C96C0B8002FE06F /* MemoListTableViewCell.xib */; };
 		394709C11C96C308002FE06F /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394709C01C96C308002FE06F /* Settings.swift */; };
 		394709C41C96C5F6002FE06F /* MemoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394709C31C96C5F6002FE06F /* MemoModel.swift */; };
-		394709C71C96D7E5002FE06F /* TravelTitlesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394709C61C96D7E5002FE06F /* TravelTitlesModel.swift */; };
 		394709C91C970120002FE06F /* CreatePlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394709C81C970120002FE06F /* CreatePlanViewController.swift */; };
 		394709CB1C97490F002FE06F /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394709CA1C97490F002FE06F /* Alert.swift */; };
-		394709CD1C97ABA6002FE06F /* TravelTitleRealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394709CC1C97ABA6002FE06F /* TravelTitleRealmModel.swift */; };
 		394709D01C97FD70002FE06F /* ScheduleListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394709CE1C97FD70002FE06F /* ScheduleListTableViewCell.swift */; };
 		394709D11C97FD70002FE06F /* ScheduleListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 394709CF1C97FD70002FE06F /* ScheduleListTableViewCell.xib */; };
 		394709D51C97FFD7002FE06F /* ScheduleListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394709D41C97FFD7002FE06F /* ScheduleListModel.swift */; };
+		39470A4D1C988458002FE06F /* TravelTitlesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39470A4C1C988458002FE06F /* TravelTitlesModel.swift */; };
 		3E084DD11C9844F100B5FA14 /* TodoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E084DD01C9844F100B5FA14 /* TodoListViewController.swift */; };
 		4DDB26241C964ECF005A4EA2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDB26231C964ECF005A4EA2 /* AppDelegate.swift */; };
 		4DDB26261C964ECF005A4EA2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDB26251C964ECF005A4EA2 /* ViewController.swift */; };
@@ -64,13 +63,12 @@
 		394709BC1C96C0B8002FE06F /* MemoListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MemoListTableViewCell.xib; sourceTree = "<group>"; };
 		394709C01C96C308002FE06F /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		394709C31C96C5F6002FE06F /* MemoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoModel.swift; sourceTree = "<group>"; };
-		394709C61C96D7E5002FE06F /* TravelTitlesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravelTitlesModel.swift; sourceTree = "<group>"; };
 		394709C81C970120002FE06F /* CreatePlanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePlanViewController.swift; sourceTree = "<group>"; };
 		394709CA1C97490F002FE06F /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
-		394709CC1C97ABA6002FE06F /* TravelTitleRealmModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravelTitleRealmModel.swift; sourceTree = "<group>"; };
 		394709CE1C97FD70002FE06F /* ScheduleListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleListTableViewCell.swift; sourceTree = "<group>"; };
 		394709CF1C97FD70002FE06F /* ScheduleListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleListTableViewCell.xib; sourceTree = "<group>"; };
 		394709D41C97FFD7002FE06F /* ScheduleListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleListModel.swift; sourceTree = "<group>"; };
+		39470A4C1C988458002FE06F /* TravelTitlesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravelTitlesModel.swift; sourceTree = "<group>"; };
 		3E084DD01C9844F100B5FA14 /* TodoListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoListViewController.swift; sourceTree = "<group>"; };
 		4DDB26201C964ECF005A4EA2 /* Swimee314.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swimee314.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DDB26231C964ECF005A4EA2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -171,8 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				394709C31C96C5F6002FE06F /* MemoModel.swift */,
-				394709C61C96D7E5002FE06F /* TravelTitlesModel.swift */,
-				394709CC1C97ABA6002FE06F /* TravelTitleRealmModel.swift */,
+				39470A4C1C988458002FE06F /* TravelTitlesModel.swift */,
 				394709D41C97FFD7002FE06F /* ScheduleListModel.swift */,
 			);
 			name = Models;
@@ -484,10 +481,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DDB26261C964ECF005A4EA2 /* ViewController.swift in Sources */,
-				394709C71C96D7E5002FE06F /* TravelTitlesModel.swift in Sources */,
 				4DDB26661C967B23005A4EA2 /* MemoListViewController.swift in Sources */,
 				4DDB26241C964ECF005A4EA2 /* AppDelegate.swift in Sources */,
-				394709CD1C97ABA6002FE06F /* TravelTitleRealmModel.swift in Sources */,
 				394709BD1C96C0B8002FE06F /* MemoListTableViewCell.swift in Sources */,
 				394709CB1C97490F002FE06F /* Alert.swift in Sources */,
 				4DDB26631C967A5B005A4EA2 /* README.md in Sources */,
@@ -499,6 +494,7 @@
 				3E084DD11C9844F100B5FA14 /* TodoListViewController.swift in Sources */,
 				394709C11C96C308002FE06F /* Settings.swift in Sources */,
 				394709B81C96BC55002FE06F /* ScheduleListViewController.swift in Sources */,
+				39470A4D1C988458002FE06F /* TravelTitlesModel.swift in Sources */,
 				4DDB26561C966062005A4EA2 /* MemoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

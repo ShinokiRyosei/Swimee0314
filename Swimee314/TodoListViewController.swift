@@ -10,11 +10,17 @@ import UIKit
 import CTCheckbox
 
 class TodoListViewController: UIViewController,UITableViewDelegate, UITableViewDataSource,UITextFieldDelegate{
-        
-        
+    
+    
+    var lightpinkColor = UIColor(red: 238/255, green: 196/255, blue: 198/255, alpha: 1.0)
+    var pinkColor = UIColor(red: 208/255, green:98/255, blue:97/255, alpha: 1.0)
+    var blueColor = UIColor(red: 62/255, green: 150/255, blue: 185/255, alpha: 1.0)
+    var backgroundColor = UIColor(red: 238/255, green: 238/255, blue: 236/255, alpha: 1.0)
+    var yellowColor = UIColor(red: 237/255, green: 215/255, blue: 124/255, alpha: 1.0)
         
         // Tableで使用する配列を設定する
         private var myItems : [String] = Array()
+        private var selected : [Bool] = Array()
         private var myTableView: UITableView!
         
         //todoリスト記入
@@ -25,6 +31,12 @@ class TodoListViewController: UIViewController,UITableViewDelegate, UITableViewD
         override func viewDidLoad() {
             super.viewDidLoad()
             
+            //viewの背景色
+            self.view.backgroundColor = backgroundColor
+            
+            //navigationvarの色指定
+            self.navigationController?.navigationBar.barTintColor = pinkColor
+
             // Status Barの高さを取得する.
             let barHeight: CGFloat = UIApplication.sharedApplication().statusBarFrame.size.height
             
@@ -44,6 +56,9 @@ class TodoListViewController: UIViewController,UITableViewDelegate, UITableViewD
             // Delegateを設定する.
             myTableView.delegate = self
             
+            myTableView.tableFooterView = UIView()
+
+            
             // Viewに追加する.
             self.view.addSubview(myTableView)
             
@@ -52,12 +67,13 @@ class TodoListViewController: UIViewController,UITableViewDelegate, UITableViewD
             textField = UITextField(frame: CGRectMake(0,0,self.view.bounds.width,30))
             
             textField.delegate = self
-            textField.layer.position = CGPoint(x:self.view.bounds.width / 2 ,y:self.view.bounds.height - 15);
+            textField.layer.position = CGPoint(x:self.view.bounds.width / 2 ,y:self.view.bounds.height - 65);
             print(textField.layer.position.x)
-            textField.borderStyle = UITextBorderStyle.RoundedRect
-            textField.backgroundColor = UIColor.blackColor()
-            textField.textColor = UIColor.whiteColor()
+            textField.borderStyle = UITextBorderStyle.None
+            textField.backgroundColor = yellowColor
+            textField.textColor = backgroundColor
             
+
             
             //viewに追加
             self.view.addSubview(textField)
@@ -88,15 +104,15 @@ class TodoListViewController: UIViewController,UITableViewDelegate, UITableViewD
         
         //Enterキーが押された時
         func textFieldShouldReturn(textField: UITextField) -> Bool {
-            //ここでTableViewに表示させる
+            //TableViewに表示
             myItems.append(textField.text!)
-            print(myItems[0])
             textField.resignFirstResponder()
             
             myTableView.reloadData()
             
             //textFieldの中の文字を消す
-            
+            textField.text = ""
+    
             return true
         }
         
@@ -112,13 +128,12 @@ class TodoListViewController: UIViewController,UITableViewDelegate, UITableViewD
         }
         
         func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-            //        43
-            // 再利用するCellを取得する.
             
             let cell = tableView.dequeueReusableCellWithIdentifier("MyCell", forIndexPath: indexPath) as! CustomTableViewCell
             
             // Cellに値を設定する.
             cell.textLabel!.text = "\(myItems[indexPath.row])"
+            cell.textLabel!.textColor = UIColor(red: 70/255, green: 70/255, blue: 70/255, alpha: 1.0)
             
             cell.checkbox.addTarget(self, action: "checked:", forControlEvents: .ValueChanged)
             cell.setData()
@@ -153,7 +168,7 @@ class TodoListViewController: UIViewController,UITableViewDelegate, UITableViewD
             let _: CGFloat = info[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber as CGFloat
             
             UIView.animateWithDuration(0.25, delay: 0.0, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
-                self.textField.frame = CGRectMake(0,(self.view.bounds.height - 30), self.view.bounds.width, 30
+                self.textField.frame = CGRectMake(0,(self.view.bounds.height - 80), self.view.bounds.width, 30
                 )
                 }, completion: nil)
         }
@@ -165,7 +180,9 @@ class TodoListViewController: UIViewController,UITableViewDelegate, UITableViewD
         
         
         func checked(sender:CTCheckbox) {
-            //selected[sender.tag] = sender.checked
+            
+            selected.append(true)
+            selected[sender.tag] = sender.checked
             
         }
     }
