@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'A2C3531EE213489DC9D9E348'
-               BlueprintName = 'PageMenu'
+               BlueprintIdentifier = 'D4FDF2CA21D1DC09D35505D3'
+               BlueprintName = 'ActionSheetPicker-3.0'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'PageMenu.framework'>
+               BuildableName = 'ActionSheetPicker_3_0.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

@@ -9,6 +9,7 @@ pod 'Parse'
 pod 'PageMenu'
 pod 'CTCheckbox'
 pod 'SVProgressHUD'
+pod 'ActionSheetPicker-3.0'
 end
 
 target 'Swimee314Tests' do
