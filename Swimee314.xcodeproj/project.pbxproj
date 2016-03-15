@@ -147,10 +147,8 @@
 			children = (
 				394709B51C96BC12002FE06F /* ScheduleListViewController.xib */,
 				394709B71C96BC55002FE06F /* ScheduleListViewController.swift */,
-				394709BB1C96C0B8002FE06F /* MemoListTableViewCell.swift */,
-				394709BC1C96C0B8002FE06F /* MemoListTableViewCell.xib */,
-				394709CE1C97FD70002FE06F /* ScheduleListTableViewCell.swift */,
-				394709CF1C97FD70002FE06F /* ScheduleListTableViewCell.xib */,
+				394709D31C97FEF9002FE06F /* MemoListCell */,
+				394709D21C97FEEA002FE06F /* ScheduleListCell */,
 			);
 			name = CustomXIB;
 			sourceTree = "<group>";
@@ -172,6 +170,24 @@
 				394709CC1C97ABA6002FE06F /* TravelTitleRealmModel.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		394709D21C97FEEA002FE06F /* ScheduleListCell */ = {
+			isa = PBXGroup;
+			children = (
+				394709CE1C97FD70002FE06F /* ScheduleListTableViewCell.swift */,
+				394709CF1C97FD70002FE06F /* ScheduleListTableViewCell.xib */,
+			);
+			name = ScheduleListCell;
+			sourceTree = "<group>";
+		};
+		394709D31C97FEF9002FE06F /* MemoListCell */ = {
+			isa = PBXGroup;
+			children = (
+				394709BB1C96C0B8002FE06F /* MemoListTableViewCell.swift */,
+				394709BC1C96C0B8002FE06F /* MemoListTableViewCell.xib */,
+			);
+			name = MemoListCell;
 			sourceTree = "<group>";
 		};
 		4085A656D05190320313A21E /* Pods */ = {
