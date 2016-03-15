@@ -12,6 +12,8 @@ import RealmSwift
 
 //Memo用のRealmのモデル
 class Memo: Object {
+    dynamic var id = 0
     dynamic var memo = ""
+    dynamic var objectId = ""
     dynamic var number = 0
 }

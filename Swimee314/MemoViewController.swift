@@ -51,10 +51,6 @@ class MemoViewController: UIViewController, UITextViewDelegate,UIScrollViewDeleg
             selector: "keyboardWillBeHidden:",
             name: UIKeyboardWillHideNotification,
             object: nil)
-        
-//        let notificationCenter = NSNotificationCenter.defaultCenter()
-//        notificationCenter.addObserver(self, selector: "handleKeyboardWillShowNotification:", name: UIKeyboardWillShowNotification, object: nil)
-//        notificationCenter.addObserver(self, selector: "handleKeyboardWillHideNotification:", name: UIKeyboardWillHideNotification, object: nil)
     }
     
     func handleKeyboardWillShowNotification(notification: NSNotification) {
@@ -96,18 +92,15 @@ class MemoViewController: UIViewController, UITextViewDelegate,UIScrollViewDeleg
     
     func keyboardWillBeHidden(notification: NSNotification) {
     }
-    
-    func textViewShouldReturn(textField: UITextView) -> Bool {
-        textView.resignFirstResponder()
-        return true
-    }
-    
     @IBAction func saveMemo(){
         guard let text = contentTextView.text else { return }
         let myMemo = Memo()
         myMemo.memo = text
         try! realm.write {
-            realm.add(myMemo)
+            self.realm.add(myMemo)
         }
+    }
+    func read(){
+        let myreadMemo = realm.objects(Memo)
     }
 }
