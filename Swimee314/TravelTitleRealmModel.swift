@@ -13,6 +13,7 @@ import RealmSwift
 class TravelTitleRealmModel: Object {
     
     dynamic var travelTitle = ""
-    dynamic var days = 0
+    dynamic var objectId = ""
+    dynamic var days: Int = 0
 
 }

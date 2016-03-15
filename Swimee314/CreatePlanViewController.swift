@@ -60,25 +60,30 @@ class CreatePlanViewController: UIViewController, UITextFieldDelegate, UIActionS
         let realm = try! Realm()
         
         SVProgressHUD.show()
-//        let data = TravelTitles(title: text, days: String(day))
-//        
-//        data.saveInBackgroundWithBlock { (succeeded, error) -> Void in
-//            
-//            
-//            if !succeeded {
-//                print("\(error?.localizedDescription)")
-//            }
-//            
-//            let travel = data.objectId
-//            try! realm.write({ () -> Void in
-//                realm.add(<#T##object: Object##Object#>)
-//            })
-//            
-//            
-//        
-//            SVProgressHUD.showSuccessWithStatus("作成完了")
-//            self.tabBarController?.selectedIndex = 2
-//        }
+        let data = TravelTitles(title: text, days: String(day))
+        
+        data.saveInBackgroundWithBlock { (succeeded, error) -> Void in
+            
+            
+            if !succeeded {
+                print("\(error?.localizedDescription)")
+            }
+            
+            let travel = data.objectId
+            let realmModel = TravelTitleRealmModel()
+            realmModel.travelTitle = text
+            realmModel.objectId = travel!
+            realmModel.days = Int(day)!
+            
+            try! realm.write({ () -> Void in
+                realm.add(realmModel)
+            })
+            
+            
+        
+            SVProgressHUD.showSuccessWithStatus("作成完了")
+            self.tabBarController?.selectedIndex = 2
+        }
         
     }
     @IBAction func tapScreen(sender: UITapGestureRecognizer) {
