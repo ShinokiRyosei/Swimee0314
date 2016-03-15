@@ -9,6 +9,9 @@
 import UIKit
 import Parse
 import ActionSheetPicker_3_0
+import SVProgressHUD
+import Realm
+import RealmSwift
 
 class CreatePlanViewController: UIViewController, UITextFieldDelegate, UIActionSheetDelegate {
 
@@ -22,7 +25,7 @@ class CreatePlanViewController: UIViewController, UITextFieldDelegate, UIActionS
         projectTextField.delegate = self
         daysTextField.delegate = self
         
-        projectTextField.resignFirstResponder()
+//        projectTextField.resignFirstResponder()
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,8 +33,9 @@ class CreatePlanViewController: UIViewController, UITextFieldDelegate, UIActionS
         // Dispose of any resources that can be recreated.
     }
     
-    func textFieldDidBeginEditing(textField: UITextField) {
-        textField.resignFirstResponder()
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        projectTextField.becomeFirstResponder()
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -39,10 +43,43 @@ class CreatePlanViewController: UIViewController, UITextFieldDelegate, UIActionS
         return true
     }
     
+    @IBAction func sendBtn(sender: AnyObject) {
+        self.create()
+    }
+    
     
     func create() {
-        guard let text = projectTextField.text else { return }
-//        TravelTitles(title: projectTextField.text!, days: <#T##Int#>)
+        guard let text = projectTextField.text else {
+            Alert.showAlertView("旅行のタイトルを入れてください", messageText: "タイトルなしでは行程を作成できません", buttonTitle: "OK")
+            return }
+        guard let day: String = String(days) else {
+            Alert.showAlertView("旅行の日数を記入してください", messageText: "日数なしでは行程を作成できません", buttonTitle: "OK")
+            return
+        }
+        
+        let realm = try! Realm()
+        
+        SVProgressHUD.show()
+        let data = TravelTitles(title: text, days: String(day))
+        
+        data.saveInBackgroundWithBlock { (succeeded, error) -> Void in
+            
+            
+            if !succeeded {
+                print("\(error?.localizedDescription)")
+            }
+            
+            let travel = data.objectId
+            
+            
+        
+            SVProgressHUD.showSuccessWithStatus("作成完了")
+            self.tabBarController?.selectedIndex = 2
+        }
+        
+    }
+    @IBAction func tapScreen(sender: UITapGestureRecognizer) {
+        self.view.endEditing(true)
     }
     
     func picker(sender: UITextField) {
@@ -53,35 +90,36 @@ class CreatePlanViewController: UIViewController, UITextFieldDelegate, UIActionS
             daysArray.append(i)
         }
         
-//        ActionSheetStringPicker.showPickerWithTitle("旅行の日数を選んでください", rows: daysArray, initialSelection: 0, target: "decideDays", successAction: nil, cancelAction: nil, origin: sender)
+
         let actionSheet = ActionSheetStringPicker(title: "旅行の日数を選んでください", rows: daysArray, initialSelection: 0, doneBlock: { (picker, selectedIndex, id) -> Void in self.decideDays(selectedIndex+1)
             }, cancelBlock: nil, origin: sender)
         actionSheet.showActionSheetPicker()
-//        let actionSheet = ActionSheetStringPicker(title: "choice person", rows: daysArray, initialSelection: 0, doneBlock: {(picker, selectedIndex, id) -> Void in print("picker...\(picker), selectedIndex...\(selectedIndex), id...\(id)")
-//            
-//            self.personNumber = selectedIndex + 1
-//            self.personLabel.text = person[selectedIndex] as! String
-//            self.Egg()
-//            
-//            }, cancelBlock: { (picker) -> Void in
-//                print("\(picker)")
-//            }, origin: sender)
-//        
-//        
-//        
-//        
-//        actionSheet.showActionSheetPicker()
     }
     
     func decideDays(id: Int) {
         daysTextField.text = "\(id)日"
+        days = id
+    }
+    
+    func textFieldShouldEndEditing(textField: UITextField) -> Bool {
+        if textField == projectTextField {
+            textField.resignFirstResponder()
+        }
+        
+        return true
+        
+        
     }
     
     
-    
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
-        self.picker(textField)
-        return false
+        if textField == daysTextField {
+            self.view.endEditing(true)
+            self.picker(textField)
+            return false
+        }else {
+            return true
+        }
     }
     
     

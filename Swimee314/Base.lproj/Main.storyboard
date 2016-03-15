@@ -76,11 +76,23 @@
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oME-BY-V7w">
                                 <rect key="frame" x="20" y="247" width="286" height="30"/>
+                                <gestureRecognizers/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M9R-56-bU4">
+                                <rect key="frame" x="137" y="375" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="sendBtn:" destination="ULp-V6-2sw" eventType="touchUpInside" id="oVm-Xz-fsS"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="oHc-0I-nhv" appends="YES" id="rDk-kl-DM2"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="I7u-sz-Euu"/>
                     <connections>
@@ -89,6 +101,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GNd-Wa-LZ8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="oHc-0I-nhv">
+                    <connections>
+                        <action selector="tapScreen:" destination="ULp-V6-2sw" id="WZ9-yF-QfA"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="128" y="1206"/>
         </scene>

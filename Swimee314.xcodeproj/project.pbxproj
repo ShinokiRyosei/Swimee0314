@@ -16,6 +16,7 @@
 		394709C71C96D7E5002FE06F /* TravelTitlesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394709C61C96D7E5002FE06F /* TravelTitlesModel.swift */; };
 		394709C91C970120002FE06F /* CreatePlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394709C81C970120002FE06F /* CreatePlanViewController.swift */; };
 		394709CB1C97490F002FE06F /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394709CA1C97490F002FE06F /* Alert.swift */; };
+		394709CD1C97ABA6002FE06F /* TravelTitleRealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394709CC1C97ABA6002FE06F /* TravelTitleRealmModel.swift */; };
 		4DDB26241C964ECF005A4EA2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDB26231C964ECF005A4EA2 /* AppDelegate.swift */; };
 		4DDB26261C964ECF005A4EA2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDB26251C964ECF005A4EA2 /* ViewController.swift */; };
 		4DDB26291C964ECF005A4EA2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DDB26271C964ECF005A4EA2 /* Main.storyboard */; };
@@ -62,6 +63,7 @@
 		394709C61C96D7E5002FE06F /* TravelTitlesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravelTitlesModel.swift; sourceTree = "<group>"; };
 		394709C81C970120002FE06F /* CreatePlanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePlanViewController.swift; sourceTree = "<group>"; };
 		394709CA1C97490F002FE06F /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		394709CC1C97ABA6002FE06F /* TravelTitleRealmModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravelTitleRealmModel.swift; sourceTree = "<group>"; };
 		4DDB26201C964ECF005A4EA2 /* Swimee314.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swimee314.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DDB26231C964ECF005A4EA2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4DDB26251C964ECF005A4EA2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 			children = (
 				394709C31C96C5F6002FE06F /* MemoModel.swift */,
 				394709C61C96D7E5002FE06F /* TravelTitlesModel.swift */,
+				394709CC1C97ABA6002FE06F /* TravelTitleRealmModel.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -455,6 +458,7 @@
 				394709C71C96D7E5002FE06F /* TravelTitlesModel.swift in Sources */,
 				4DDB26661C967B23005A4EA2 /* MemoListViewController.swift in Sources */,
 				4DDB26241C964ECF005A4EA2 /* AppDelegate.swift in Sources */,
+				394709CD1C97ABA6002FE06F /* TravelTitleRealmModel.swift in Sources */,
 				394709BD1C96C0B8002FE06F /* MemoListTableViewCell.swift in Sources */,
 				394709CB1C97490F002FE06F /* Alert.swift in Sources */,
 				4DDB26631C967A5B005A4EA2 /* README.md in Sources */,
