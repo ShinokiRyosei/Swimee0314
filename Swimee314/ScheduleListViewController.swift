@@ -9,12 +9,21 @@
 import UIKit
 
 class ScheduleListViewController: UITableViewController {
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.tableView.registerNib(UINib(nibName: "", bundle: nil), forCellReuseIdentifier: "")
+        self.tableView.registerNib(UINib(nibName: "ScheduleListTableViewCell", bundle: nil), forCellReuseIdentifier: "ScheduleListCell")
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -26,6 +35,11 @@ class ScheduleListViewController: UITableViewController {
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 0
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = self.tableView.dequeueReusableCellWithIdentifier("ScheduleCell", forIndexPath: indexPath) as! ScheduleListTableViewCell
+        return cell
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

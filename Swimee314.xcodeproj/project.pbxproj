@@ -17,6 +17,9 @@
 		394709C91C970120002FE06F /* CreatePlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394709C81C970120002FE06F /* CreatePlanViewController.swift */; };
 		394709CB1C97490F002FE06F /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394709CA1C97490F002FE06F /* Alert.swift */; };
 		394709CD1C97ABA6002FE06F /* TravelTitleRealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394709CC1C97ABA6002FE06F /* TravelTitleRealmModel.swift */; };
+		394709D01C97FD70002FE06F /* ScheduleListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394709CE1C97FD70002FE06F /* ScheduleListTableViewCell.swift */; };
+		394709D11C97FD70002FE06F /* ScheduleListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 394709CF1C97FD70002FE06F /* ScheduleListTableViewCell.xib */; };
+		394709D51C97FFD7002FE06F /* ScheduleListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394709D41C97FFD7002FE06F /* ScheduleListModel.swift */; };
 		4DDB26241C964ECF005A4EA2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDB26231C964ECF005A4EA2 /* AppDelegate.swift */; };
 		4DDB26261C964ECF005A4EA2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDB26251C964ECF005A4EA2 /* ViewController.swift */; };
 		4DDB26291C964ECF005A4EA2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DDB26271C964ECF005A4EA2 /* Main.storyboard */; };
@@ -64,6 +67,9 @@
 		394709C81C970120002FE06F /* CreatePlanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePlanViewController.swift; sourceTree = "<group>"; };
 		394709CA1C97490F002FE06F /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		394709CC1C97ABA6002FE06F /* TravelTitleRealmModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravelTitleRealmModel.swift; sourceTree = "<group>"; };
+		394709CE1C97FD70002FE06F /* ScheduleListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleListTableViewCell.swift; sourceTree = "<group>"; };
+		394709CF1C97FD70002FE06F /* ScheduleListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleListTableViewCell.xib; sourceTree = "<group>"; };
+		394709D41C97FFD7002FE06F /* ScheduleListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleListModel.swift; sourceTree = "<group>"; };
 		4DDB26201C964ECF005A4EA2 /* Swimee314.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swimee314.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DDB26231C964ECF005A4EA2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4DDB26251C964ECF005A4EA2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -143,8 +149,8 @@
 			children = (
 				394709B51C96BC12002FE06F /* ScheduleListViewController.xib */,
 				394709B71C96BC55002FE06F /* ScheduleListViewController.swift */,
-				394709BB1C96C0B8002FE06F /* MemoListTableViewCell.swift */,
-				394709BC1C96C0B8002FE06F /* MemoListTableViewCell.xib */,
+				394709D31C97FEF9002FE06F /* MemoListCell */,
+				394709D21C97FEEA002FE06F /* ScheduleListCell */,
 			);
 			name = CustomXIB;
 			sourceTree = "<group>";
@@ -164,8 +170,27 @@
 				394709C31C96C5F6002FE06F /* MemoModel.swift */,
 				394709C61C96D7E5002FE06F /* TravelTitlesModel.swift */,
 				394709CC1C97ABA6002FE06F /* TravelTitleRealmModel.swift */,
+				394709D41C97FFD7002FE06F /* ScheduleListModel.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		394709D21C97FEEA002FE06F /* ScheduleListCell */ = {
+			isa = PBXGroup;
+			children = (
+				394709CE1C97FD70002FE06F /* ScheduleListTableViewCell.swift */,
+				394709CF1C97FD70002FE06F /* ScheduleListTableViewCell.xib */,
+			);
+			name = ScheduleListCell;
+			sourceTree = "<group>";
+		};
+		394709D31C97FEF9002FE06F /* MemoListCell */ = {
+			isa = PBXGroup;
+			children = (
+				394709BB1C96C0B8002FE06F /* MemoListTableViewCell.swift */,
+				394709BC1C96C0B8002FE06F /* MemoListTableViewCell.xib */,
+			);
+			name = MemoListCell;
 			sourceTree = "<group>";
 		};
 		4085A656D05190320313A21E /* Pods */ = {
@@ -372,6 +397,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				394709D11C97FD70002FE06F /* ScheduleListTableViewCell.xib in Resources */,
 				4DDB265F1C967A5B005A4EA2 /* .gitignore in Resources */,
 				394709BE1C96C0B8002FE06F /* MemoListTableViewCell.xib in Resources */,
 				4DDB262E1C964ECF005A4EA2 /* LaunchScreen.storyboard in Resources */,
@@ -465,6 +491,8 @@
 				394709C41C96C5F6002FE06F /* MemoModel.swift in Sources */,
 				394709C91C970120002FE06F /* CreatePlanViewController.swift in Sources */,
 				4DDB26641C967A5B005A4EA2 /* StoryboardHelper.swift in Sources */,
+				394709D01C97FD70002FE06F /* ScheduleListTableViewCell.swift in Sources */,
+				394709D51C97FFD7002FE06F /* ScheduleListModel.swift in Sources */,
 				394709C11C96C308002FE06F /* Settings.swift in Sources */,
 				394709B81C96BC55002FE06F /* ScheduleListViewController.swift in Sources */,
 				4DDB26561C966062005A4EA2 /* MemoViewController.swift in Sources */,

@@ -1,33 +1,38 @@
 //
-//  TravelTitles.swift
+//  ScheduleListModel.swift
 //  Swimee314
 //
-//  Created by ShinokiRyosei on 2016/03/14.
+//  Created by ShinokiRyosei on 2016/03/15.
 //  Copyright © 2016年 KasumiIwamoto. All rights reserved.
 //
 
 import UIKit
 import Parse
 
-class TravelTitles: PFObject, PFSubclassing {
+class ScheduleListModel: PFObject, PFSubclassing {
     
-    @NSManaged var title: String!
-    @NSManaged var days: String!
+    @NSManaged var travelId: PFObject!
+    @NSManaged var day: String!
+    @NSManaged var content: String!
+    @NSManaged var time: String!
     
-    //送るデータのかたまり
-    init(title: String, days: String) {
+    
+    init(travelId: PFObject, day: String, content: String, time: String) {
         super.init()
-        self.title = title
-        self.days = days
         
+        self.travelId = travelId
+        self.day = day
+        self.content = content
+        self.time = time
     }
     
     override init() {
         super.init()
     }
     
-    required init?(coder aDecorder: NSCoder) {
+    required init(code aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+        
     }
     
     override class func initialize() {
@@ -41,6 +46,6 @@ class TravelTitles: PFObject, PFSubclassing {
     }
     
     static func parseClassName() -> String {
-        return "TravelTitles"
+        return "Schedule"
     }
 }
