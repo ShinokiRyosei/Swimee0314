@@ -44,6 +44,9 @@ class TodoListViewController: UIViewController,UITableViewDelegate, UITableViewD
             // Delegateを設定する.
             myTableView.delegate = self
             
+            myTableView.tableFooterView = UIView()
+
+            
             // Viewに追加する.
             self.view.addSubview(myTableView)
             
@@ -52,12 +55,13 @@ class TodoListViewController: UIViewController,UITableViewDelegate, UITableViewD
             textField = UITextField(frame: CGRectMake(0,0,self.view.bounds.width,30))
             
             textField.delegate = self
-            textField.layer.position = CGPoint(x:self.view.bounds.width / 2 ,y:self.view.bounds.height - 15);
+            textField.layer.position = CGPoint(x:self.view.bounds.width / 2 ,y:self.view.bounds.height - 65);
             print(textField.layer.position.x)
             textField.borderStyle = UITextBorderStyle.RoundedRect
             textField.backgroundColor = UIColor.blackColor()
             textField.textColor = UIColor.whiteColor()
             
+
             
             //viewに追加
             self.view.addSubview(textField)
@@ -153,7 +157,7 @@ class TodoListViewController: UIViewController,UITableViewDelegate, UITableViewD
             let _: CGFloat = info[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber as CGFloat
             
             UIView.animateWithDuration(0.25, delay: 0.0, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
-                self.textField.frame = CGRectMake(0,(self.view.bounds.height - 30), self.view.bounds.width, 30
+                self.textField.frame = CGRectMake(0,(self.view.bounds.height - 80), self.view.bounds.width, 30
                 )
                 }, completion: nil)
         }
