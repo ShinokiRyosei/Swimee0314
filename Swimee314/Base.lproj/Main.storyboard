@@ -107,9 +107,22 @@
                     <view key="view" contentMode="scaleToFill" id="OGu-by-cWe">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LJ4-hM-vFa">
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="m8s-lE-WKd">
+                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="XGK-F1-28u"/>
+                    <connections>
+                        <outlet property="map" destination="m8s-lE-WKd" id="Cic-Xa-1fZ"/>
+                        <outlet property="searchBar" destination="LJ4-hM-vFa" id="Guw-xT-9tx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kua-qz-4An" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
