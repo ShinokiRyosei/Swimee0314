@@ -80,7 +80,7 @@ class MemoViewController: UIViewController, UITextViewDelegate,UIScrollViewDeleg
         let myMemo = Memo()
         myMemo.memo = text
         try! realm.write {
-            realm.add(myMemo)
+            self.realm.add(myMemo)
         }
     }
 }
