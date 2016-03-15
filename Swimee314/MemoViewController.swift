@@ -10,12 +10,14 @@ import UIKit
 import RealmSwift
 import Realm
 
-class MemoViewController: UIViewController, UITextViewDelegate {
+class MemoViewController: UIViewController, UITextViewDelegate,UIScrollViewDelegate {
     @IBOutlet var contentTextView:UITextView!
     @IBOutlet var addScroll: UIScrollView!
     
     var frameView: UIView!
     let realm = try! Realm()
+
+    var txtActiveView = UITextView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,13 +25,46 @@ class MemoViewController: UIViewController, UITextViewDelegate {
         contentTextView.delegate = self //デリゲート設定
         self.frameView = UIView(frame: CGRectMake(0, 0, self.view.bounds.width, self.view.bounds.height))
         // Keyboard stuff.
-        let center: NSNotificationCenter = NSNotificationCenter.defaultCenter()
-        center.addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
-        center.addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
+
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    //改行ボタンが押された際に呼ばれる.
+    func textViewShouldReturn(textView: UITextView) -> Bool {
+        textView.resignFirstResponder()
+        return true
+    }
+    //UITextFieldが編集された直後に呼ばれる.
+    func textViewShouldBeginEditing(textView: UITextView) -> Bool {
+        txtActiveView = textView
+        return true
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let notificationCenter = NSNotificationCenter.defaultCenter()
+        notificationCenter.addObserver(self, selector: "handleKeyboardWillShowNotification:", name: UIKeyboardWillShowNotification, object: nil)
+        notificationCenter.addObserver(self, selector: "handleKeyboardWillHideNotification:", name: UIKeyboardWillHideNotification, object: nil)
+    }
+    
+    func handleKeyboardWillShowNotification(notification: NSNotification) {
+        
+        let userInfo = notification.userInfo!
+        let keyboardScreenEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
+        let myBoundSize: CGSize = UIScreen.mainScreen().bounds.size
+        let txtLimit = contentTextView.frame.origin.y + contentTextView.frame.height + 8.0
+        let kbdLimit = myBoundSize.height - keyboardScreenEndFrame.size.height
+        
+        if txtLimit >= kbdLimit {
+            addScroll.contentOffset.y = txtLimit - kbdLimit
+        }
+    }
+    
+    func handleKeyboardWillHideNotification(notification: NSNotification) {
+        addScroll.contentOffset.y = 0
     }
     
     // Viewが非表示になるたびに呼び出されるメソッド
@@ -40,35 +75,6 @@ class MemoViewController: UIViewController, UITextViewDelegate {
         notificationCenter.removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
         notificationCenter.removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
     }
-    
-    func keyboardWillShow(notification: NSNotification) {
-        let info:NSDictionary = notification.userInfo!
-        let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as! NSValue).CGRectValue()
-        
-        let keyboardHeight: CGFloat = keyboardSize.height
-        
-        let _: CGFloat = info[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber as CGFloat
-        
-        
-        UIView.animateWithDuration(0.25, delay: 0.25, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
-            self.frameView.frame = CGRectMake(0, (self.frameView.frame.origin.y - keyboardHeight), self.view.bounds.width, self.view.bounds.height)
-            }, completion: nil)
-        
-    }
-    
-    func keyboardWillHide(notification: NSNotification) {
-        let info: NSDictionary = notification.userInfo!
-        let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as! NSValue).CGRectValue()
-        
-        let keyboardHeight: CGFloat = keyboardSize.height
-        
-        let _: CGFloat = info[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber as CGFloat
-        
-        UIView.animateWithDuration(0.25, delay: 0.25, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
-            self.frameView.frame = CGRectMake(0, (self.frameView.frame.origin.y + keyboardHeight), self.view.bounds.width, self.view.bounds.height)
-            }, completion: nil)
-        
-    }
     @IBAction func saveMemo(){
         guard let text = contentTextView.text else { return }
         let myMemo = Memo()
@@ -76,17 +82,5 @@ class MemoViewController: UIViewController, UITextViewDelegate {
         try! realm.write {
             realm.add(myMemo)
         }
-    }
-    //ずらした分を戻す処理
-    func handleKeyboardWillHideNotification(notification: NSNotification) {
-        addScroll.contentOffset.y = 0
-    }
-    
-    func textViewDidEndEditing(textView: UITextView) {
-        textView.resignFirstResponder()
-    }
-    func textViewShouldBeginEditing(textView: UITextView) -> Bool {
-        textView.resignFirstResponder()
-        return true
     }
 }
