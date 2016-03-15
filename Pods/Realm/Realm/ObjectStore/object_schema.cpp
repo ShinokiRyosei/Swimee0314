@@ -17,27 +17,17 @@
 ////////////////////////////////////////////////////////////////////////////
 
 #include "object_schema.hpp"
-
 #include "object_store.hpp"
-#include "property.hpp"
 
-#include <realm/group_shared.hpp>
-#include <realm/link_view.hpp>
+#include <realm/group.hpp>
+#include <realm/table.hpp>
 
 using namespace realm;
+using namespace std;
 
-ObjectSchema::~ObjectSchema() = default;
-
-ObjectSchema::ObjectSchema(std::string name, std::string primary_key, std::initializer_list<Property> properties)
-: name(std::move(name))
-, properties(properties)
-, primary_key(std::move(primary_key))
-{
-    set_primary_key_property();
-}
-
-ObjectSchema::ObjectSchema(const Group *group, const std::string &name) : name(name) {
-    ConstTableRef table = ObjectStore::table_for_object_type(group, name);
+ObjectSchema::ObjectSchema(Group *group, const std::string &name) : name(name) {
+    TableRef tableRef = ObjectStore::table_for_object_type(group, name);
+    Table *table = tableRef.get();
 
     size_t count = table->get_column_count();
     properties.reserve(count);
@@ -51,36 +41,28 @@ ObjectSchema::ObjectSchema(const Group *group, const std::string &name) : name(n
         property.table_column = col;
         if (property.type == PropertyTypeObject || property.type == PropertyTypeArray) {
             // set link type for objects and arrays
-            ConstTableRef linkTable = table->get_link_target(col);
+            realm::TableRef linkTable = table->get_link_target(col);
             property.object_type = ObjectStore::object_type_for_table_name(linkTable->get_name().data());
         }
-        properties.push_back(std::move(property));
+        properties.push_back(move(property));
     }
 
     primary_key = realm::ObjectStore::get_primary_key_for_object(group, name);
-    set_primary_key_property();
+    if (primary_key.length()) {
+        auto primary_key_prop = primary_key_property();
+        if (!primary_key_prop) {
+            throw ObjectStoreValidationException({"No property matching primary key '" + primary_key + "'"}, name);
+        }
+        primary_key_prop->is_primary = true;
+    }
 }
 
-Property *ObjectSchema::property_for_name(StringData name) {
-    for (auto& prop : properties) {
-        if (StringData(prop.name) == name) {
+Property *ObjectSchema::property_for_name(const std::string &name) {
+    for (auto& prop:properties) {
+        if (prop.name == name) {
             return &prop;
         }
     }
     return nullptr;
 }
 
-const Property *ObjectSchema::property_for_name(StringData name) const {
-    return const_cast<ObjectSchema *>(this)->property_for_name(name);
-}
-
-void ObjectSchema::set_primary_key_property()
-{
-    if (primary_key.length()) {
-        auto primary_key_prop = primary_key_property();
-        if (!primary_key_prop) {
-            throw InvalidPrimaryKeyException(name, primary_key);
-        }
-        primary_key_prop->is_primary = true;
-    }
-}

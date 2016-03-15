@@ -24,13 +24,6 @@ extension Realm {
     /**
     A `Realm.Configuration` is used to describe the different options used to
     create a `Realm` instance.
-
-    `Realm.Configuration` instances are just plain Swift structs, and unlike
-    `Realm` and `Object`s can be freely shared between threads. Creating
-    configuration objects for class subsets (by setting the `objectTypes`
-    property) can be expensive, and so you will normally want to cache and reuse
-    a single configuration object for each distinct configuration that you are
-    using rather than creating a new one each time you open a `Realm`.
     */
     public struct Configuration {
 
@@ -59,8 +52,10 @@ extension Realm {
         - parameter schemaVersion:      The current schema version.
         - parameter migrationBlock:     The block which migrates the Realm to the current version.
         - parameter objectTypes:        The subset of `Object` subclasses persisted in the Realm.
+
+        - returns: An initialized `Realm.Configuration`.
         */
-        public init(path: String? = RLMRealmPathForFile("default.realm"),
+        public init(path: String? = RLMRealmConfiguration.defaultRealmPath(),
             inMemoryIdentifier: String? = nil,
             encryptionKey: NSData? = nil,
             readOnly: Bool = false,
@@ -68,9 +63,7 @@ extension Realm {
             migrationBlock: MigrationBlock? = nil,
             objectTypes: [Object.Type]? = nil) {
                 self.path = path
-                if inMemoryIdentifier != nil {
-                    self.inMemoryIdentifier = inMemoryIdentifier
-                }
+                self.inMemoryIdentifier = inMemoryIdentifier
                 self.encryptionKey = encryptionKey
                 self.readOnly = readOnly
                 self.schemaVersion = schemaVersion
@@ -82,9 +75,11 @@ extension Realm {
 
         /// The path to the realm file.
         /// Mutually exclusive with `inMemoryIdentifier`.
-        public var path: String? {
+        public var path: String?  {
             set {
-                _inMemoryIdentifier = nil
+                if newValue != nil {
+                    inMemoryIdentifier = nil
+                }
                 _path = newValue
             }
             get {
@@ -96,9 +91,11 @@ extension Realm {
 
         /// A string used to identify a particular in-memory Realm.
         /// Mutually exclusive with `path`.
-        public var inMemoryIdentifier: String? {
+        public var inMemoryIdentifier: String?  {
             set {
-                _path = nil
+                if newValue != nil {
+                    path = nil
+                }
                 _inMemoryIdentifier = newValue
             }
             get {
@@ -133,43 +130,36 @@ extension Realm {
         /// A custom schema to use for the Realm.
         private var customSchema: RLMSchema? = nil
 
-        /// Allows to disable automatic format upgrades when accessing the Realm.
-        internal var disableFormatUpgrade: Bool = false
-
         // MARK: Private Methods
 
         internal var rlmConfiguration: RLMRealmConfiguration {
             let configuration = RLMRealmConfiguration()
             if path != nil {
                 configuration.path = self.path
-            } else if inMemoryIdentifier != nil {
-                configuration.inMemoryIdentifier = self.inMemoryIdentifier
             } else {
-                fatalError("A Realm Configuration must specify a path or an in-memory identifier.")
+                configuration.inMemoryIdentifier = self.inMemoryIdentifier
             }
             configuration.encryptionKey = self.encryptionKey
             configuration.readOnly = self.readOnly
             configuration.schemaVersion = self.schemaVersion
             configuration.migrationBlock = self.migrationBlock.map { accessorMigrationBlock($0) }
             configuration.customSchema = self.customSchema
-            configuration.disableFormatUpgrade = self.disableFormatUpgrade
             return configuration
         }
 
         internal static func fromRLMRealmConfiguration(rlmConfiguration: RLMRealmConfiguration) -> Configuration {
-            var configuration = Configuration()
-            configuration._path = rlmConfiguration.path
-            configuration._inMemoryIdentifier = rlmConfiguration.inMemoryIdentifier
-            configuration.encryptionKey = rlmConfiguration.encryptionKey
-            configuration.readOnly = rlmConfiguration.readOnly
-            configuration.schemaVersion = rlmConfiguration.schemaVersion
-            configuration.migrationBlock = rlmConfiguration.migrationBlock.map { rlmMigration in
-                return { migration, schemaVersion in
-                    rlmMigration(migration.rlmMigration, schemaVersion)
+            var configuration = Configuration(path: rlmConfiguration.path,
+                inMemoryIdentifier: rlmConfiguration.inMemoryIdentifier,
+                encryptionKey: rlmConfiguration.encryptionKey,
+                readOnly: rlmConfiguration.readOnly,
+                schemaVersion: UInt64(rlmConfiguration.schemaVersion),
+                migrationBlock: rlmConfiguration.migrationBlock.map { rlmMigration in
+                    return { migration, schemaVersion in
+                        rlmMigration(migration.rlmMigration, schemaVersion)
+                    }
                 }
-            }
+            )
             configuration.customSchema = rlmConfiguration.customSchema
-            configuration.disableFormatUpgrade = rlmConfiguration.disableFormatUpgrade
             return configuration
         }
     }
@@ -180,8 +170,6 @@ extension Realm {
 extension Realm.Configuration: CustomStringConvertible {
     /// Returns a human-readable description of the configuration.
     public var description: String {
-        return gsub("\\ARLMRealmConfiguration",
-                    template: "Realm.Configuration",
-                    string: rlmConfiguration.description) ?? ""
+        return gsub("\\ARLMRealmConfiguration", template: "Realm.Configuration", string: rlmConfiguration.description) ?? ""
     }
 }

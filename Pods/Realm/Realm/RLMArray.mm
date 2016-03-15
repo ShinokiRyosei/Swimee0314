@@ -136,7 +136,8 @@ static void RLMValidateMatchingObjectType(RLMArray *array, RLMObject *object) {
         @throw RLMException(@"Object must not be nil");
     }
     if (![array->_objectClassName isEqualToString:object->_objectSchema.className]) {
-        @throw RLMException(@"Object type '%@' does not match RLMArray type '%@'.", object->_objectSchema.className, array->_objectClassName);
+        NSString *message = [NSString stringWithFormat:@"Object type '%@' does not match RLMArray type '%@'.", object->_objectSchema.className, array->_objectClassName];
+        @throw RLMException(message);
     }
 }
 
@@ -144,8 +145,8 @@ static void RLMValidateArrayBounds(__unsafe_unretained RLMArray *const ar,
                                    NSUInteger index, bool allowOnePastEnd=false) {
     NSUInteger max = ar->_backingArray.count + allowOnePastEnd;
     if (index >= max) {
-        @throw RLMException(@"Index %llu is out of bounds (must be less than %llu).",
-                            (unsigned long long)index, (unsigned long long)max);
+        @throw RLMException([NSString stringWithFormat:@"Index %llu is out of bounds (must be less than %llu).",
+                             (unsigned long long)index, (unsigned long long)max]);
     }
 }
 
@@ -174,7 +175,7 @@ static void RLMValidateArrayBounds(__unsafe_unretained RLMArray *const ar,
     // reflect changes made during enumeration. This copy has to be autoreleased
     // (since there's nowhere for us to store a strong reference), and uses
     // RLMArrayHolder rather than an NSArray because NSArray doesn't guarantee
-    // that it'll use a single contiguous block of memory, and if it doesn't
+    // that it'll use a single contiugous block of memory, and if it doesn't
     // we'd need to forward multiple calls to this method to the same NSArray,
     // which would require holding a reference to it somewhere.
     __autoreleasing RLMArrayHolder *copy = [[RLMArrayHolder alloc] init];
@@ -290,34 +291,13 @@ static void RLMValidateArrayBounds(__unsafe_unretained RLMArray *const ar,
 - (RLMResults *)objectsWhere:(NSString *)predicateFormat, ...
 {
     va_list args;
-    va_start(args, predicateFormat);
-    RLMResults *results = [self objectsWhere:predicateFormat args:args];
-    va_end(args);
-    return results;
+    RLM_VARARG(predicateFormat, args);
+    return [self objectsWhere:predicateFormat args:args];
 }
 
 - (RLMResults *)objectsWhere:(NSString *)predicateFormat args:(va_list)args
 {
     return [self objectsWithPredicate:[NSPredicate predicateWithFormat:predicateFormat arguments:args]];
-}
-
-- (id)valueForKeyPath:(NSString *)keyPath {
-    if (!_backingArray) {
-        return [super valueForKeyPath:keyPath];
-    }
-    // Although delegating to valueForKeyPath: here would allow to support
-    // nested key paths as well, limiting functionality gives consistency
-    // between standalone and persisted arrays.
-    if ([keyPath characterAtIndex:0] == '@') {
-        NSRange operatorRange = [keyPath rangeOfString:@"." options:NSLiteralSearch];
-        if (operatorRange.location != NSNotFound) {
-            NSString *operatorKeyPath = [keyPath substringFromIndex:operatorRange.location + 1];
-            if ([operatorKeyPath rangeOfString:@"."].location != NSNotFound) {
-                @throw RLMException(@"Nested key paths are not supported yet for KVC collection operators.");
-            }
-        }
-    }
-    return [_backingArray valueForKeyPath:keyPath];
 }
 
 - (id)valueForKey:(NSString *)key {
@@ -377,26 +357,13 @@ static void RLMValidateArrayBounds(__unsafe_unretained RLMArray *const ar,
     @throw RLMException(@"This method can only be called on RLMArray instances retrieved from an RLMRealm");
 }
 
-// The compiler complains about the method's argument type not matching due to
-// it not having the generic type attached, but it doesn't seem to be possible
-// to actually include the generic type
-// http://www.openradar.me/radar?id=6135653276319744
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wmismatched-parameter-types"
-- (RLMNotificationToken *)addNotificationBlock:(void (^)(RLMArray *, NSError *))block {
-    @throw RLMException(@"This method can only be called on RLMArray instances retrieved from an RLMRealm");
-}
-#pragma clang diagnostic pop
-
 #pragma GCC diagnostic pop
 
 - (NSUInteger)indexOfObjectWhere:(NSString *)predicateFormat, ...
 {
     va_list args;
-    va_start(args, predicateFormat);
-    NSUInteger index = [self indexOfObjectWhere:predicateFormat args:args];
-    va_end(args);
-    return index;
+    RLM_VARARG(predicateFormat, args);
+    return [self indexOfObjectWhere:predicateFormat args:args];
 }
 
 - (NSUInteger)indexOfObjectWhere:(NSString *)predicateFormat args:(va_list)args

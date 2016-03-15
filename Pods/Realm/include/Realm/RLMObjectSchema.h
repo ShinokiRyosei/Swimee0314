@@ -24,7 +24,7 @@ RLM_ASSUME_NONNULL_BEGIN
 @class RLMProperty;
 
 /**
- This class represents Realm model object schemas.
+ This class represents Realm model object schemas persisted to Realm in an RLMSchema.
 
  When using Realm, RLMObjectSchema objects allow performing migrations and
  introspecting the database's schema.
@@ -33,14 +33,12 @@ RLM_ASSUME_NONNULL_BEGIN
  */
 @interface RLMObjectSchema : NSObject<NSCopying>
 
-#pragma mark - Properties
-
 /**
  Array of persisted RLMProperty objects for an object.
  
  @see RLMProperty
  */
-@property (nonatomic, readonly, copy) NSArray RLM_GENERIC(RLMProperty *) *properties;
+@property (nonatomic, readonly, copy) NSArray *properties;
 
 /**
  The name of the class this schema describes.
@@ -51,8 +49,6 @@ RLM_ASSUME_NONNULL_BEGIN
  The property which is the primary key for this object (if any).
  */
 @property (nonatomic, readonly, nullable) RLMProperty *primaryKeyProperty;
-
-#pragma mark - Methods
 
 /**
  Retrieve an RLMProperty object by name.
