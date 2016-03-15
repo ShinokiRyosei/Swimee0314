@@ -99,7 +99,7 @@
         <!--Item-->
         <scene sceneID="5ka-MS-8Qh">
             <objects>
-                <viewController id="bQe-K7-Gd0" sceneMemberID="viewController">
+                <viewController id="bQe-K7-Gd0" customClass="LocationViewController" customModule="Swimee314" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="REZ-Kr-uiH"/>
                         <viewControllerLayoutGuide type="bottom" id="cmp-8r-DnR"/>
@@ -173,7 +173,7 @@
                                         <rect key="frame" x="0.0" y="92" width="320" height="32"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xet-qb-heu" id="El8-lf-bSi">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="31"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="31.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>

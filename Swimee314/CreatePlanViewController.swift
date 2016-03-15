@@ -35,6 +35,7 @@ class CreatePlanViewController: UIViewController, UITextFieldDelegate, UIActionS
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.create()
         textField.resignFirstResponder()
         return true
     }
@@ -66,6 +67,7 @@ class CreatePlanViewController: UIViewController, UITextFieldDelegate, UIActionS
         }
         
     }
+    
     
     @IBAction func tapScreen(sender: UITapGestureRecognizer) {
         self.view.endEditing(true)

@@ -19,6 +19,8 @@
 		394709D11C97FD70002FE06F /* ScheduleListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 394709CF1C97FD70002FE06F /* ScheduleListTableViewCell.xib */; };
 		394709D51C97FFD7002FE06F /* ScheduleListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394709D41C97FFD7002FE06F /* ScheduleListModel.swift */; };
 		39470A4D1C988458002FE06F /* TravelTitlesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39470A4C1C988458002FE06F /* TravelTitlesModel.swift */; };
+		39470A4F1C988F09002FE06F /* TravelLocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39470A4E1C988F09002FE06F /* TravelLocationModel.swift */; };
+		39470A511C988FDF002FE06F /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39470A501C988FDF002FE06F /* LocationViewController.swift */; };
 		3E084DD11C9844F100B5FA14 /* TodoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E084DD01C9844F100B5FA14 /* TodoListViewController.swift */; };
 		4DDB26241C964ECF005A4EA2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDB26231C964ECF005A4EA2 /* AppDelegate.swift */; };
 		4DDB26261C964ECF005A4EA2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDB26251C964ECF005A4EA2 /* ViewController.swift */; };
@@ -69,6 +71,8 @@
 		394709CF1C97FD70002FE06F /* ScheduleListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleListTableViewCell.xib; sourceTree = "<group>"; };
 		394709D41C97FFD7002FE06F /* ScheduleListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleListModel.swift; sourceTree = "<group>"; };
 		39470A4C1C988458002FE06F /* TravelTitlesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravelTitlesModel.swift; sourceTree = "<group>"; };
+		39470A4E1C988F09002FE06F /* TravelLocationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravelLocationModel.swift; sourceTree = "<group>"; };
+		39470A501C988FDF002FE06F /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		3E084DD01C9844F100B5FA14 /* TodoListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoListViewController.swift; sourceTree = "<group>"; };
 		4DDB26201C964ECF005A4EA2 /* Swimee314.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swimee314.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DDB26231C964ECF005A4EA2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -141,6 +145,7 @@
 				4DDB26651C967B23005A4EA2 /* MemoListViewController.swift */,
 				3E084DD01C9844F100B5FA14 /* TodoListViewController.swift */,
 				394709C81C970120002FE06F /* CreatePlanViewController.swift */,
+				39470A501C988FDF002FE06F /* LocationViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -171,6 +176,7 @@
 				394709C31C96C5F6002FE06F /* MemoModel.swift */,
 				39470A4C1C988458002FE06F /* TravelTitlesModel.swift */,
 				394709D41C97FFD7002FE06F /* ScheduleListModel.swift */,
+				39470A4E1C988F09002FE06F /* TravelLocationModel.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -494,6 +500,8 @@
 				3E084DD11C9844F100B5FA14 /* TodoListViewController.swift in Sources */,
 				394709C11C96C308002FE06F /* Settings.swift in Sources */,
 				394709B81C96BC55002FE06F /* ScheduleListViewController.swift in Sources */,
+				39470A4F1C988F09002FE06F /* TravelLocationModel.swift in Sources */,
+				39470A511C988FDF002FE06F /* LocationViewController.swift in Sources */,
 				39470A4D1C988458002FE06F /* TravelTitlesModel.swift in Sources */,
 				4DDB26561C966062005A4EA2 /* MemoViewController.swift in Sources */,
 			);
