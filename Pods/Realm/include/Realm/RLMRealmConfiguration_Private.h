@@ -22,17 +22,16 @@
 
 @interface RLMRealmConfiguration ()
 
-@property (nonatomic, readwrite) bool cache;
 @property (nonatomic, readwrite) bool dynamic;
-@property (nonatomic, readwrite) bool disableFormatUpgrade;
+
 @property (nonatomic, copy) RLMSchema *customSchema;
 
-// Get the default confiugration without copying it
-+ (RLMRealmConfiguration *)rawDefaultConfiguration;
++ (NSString *)defaultRealmPath;
+
++ (void)setDefaultPath:(NSString *)path;
 
 + (void)resetRealmConfigurationState;
+
 @end
 
-// Get a path in the platform-appropriate documents directory with the given filename
-FOUNDATION_EXTERN NSString *RLMRealmPathForFile(NSString *fileName);
-FOUNDATION_EXTERN NSString *RLMRealmPathForFileAndBundleIdentifier(NSString *fileName, NSString *mainBundleIdentifier);
+FOUNDATION_EXTERN void RLMRealmConfigurationUsePerPath(SEL methodName);

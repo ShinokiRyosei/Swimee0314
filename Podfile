@@ -4,7 +4,7 @@
 use_frameworks!
 
 target 'Swimee314' do
-pod 'RealmSwift'
+pod 'RealmSwift', '0.96.0'
 pod 'Parse'
 pod 'PageMenu'
 pod 'CTCheckbox'

@@ -33,17 +33,13 @@ RLM_ASSUME_NONNULL_BEGIN
  */
 @interface RLMSchema : NSObject<NSCopying>
 
-#pragma mark - Properties
-
 /**
- An NSArray containing RLMObjectSchemas for all object types in this Realm. Meant
+ An NSArray containing RLMObjectSchema's for all object types in this Realm. Meant
  to be used during migrations for dynamic introspection.
 
  @see RLMObjectSchema
  */
-@property (nonatomic, readonly, copy) NSArray RLM_GENERIC(RLMObjectSchema *) *objectSchema;
-
-#pragma mark - Methods
+@property (nonatomic, readonly, copy) NSArray *objectSchema;
 
 /**
  Returns an RLMObjectSchema for the given class name in this RLMSchema.
@@ -56,8 +52,8 @@ RLM_ASSUME_NONNULL_BEGIN
 - (nullable RLMObjectSchema *)schemaForClassName:(NSString *)className;
 
 /**
- Look up an RLMObjectSchema for the given class name in this Realm. Throws 
- an exception if there is no object of type className in this RLMSchema instance.
+ Look up an RLMObjectSchema for the given class name in this Realm. Throws if there
+ is no object of type className in this RLMSchema instance.
 
  @param className   The object class name.
  @return            RLMObjectSchema for the given class in this Realm.
@@ -67,7 +63,7 @@ RLM_ASSUME_NONNULL_BEGIN
 - (RLMObjectSchema *)objectForKeyedSubscript:(id <NSCopying>)className;
 
 /**
- Returns YES if equal to schema
+ Returns YES if schema are equal
  */
 - (BOOL)isEqualToSchema:(RLMSchema *)schema;
 

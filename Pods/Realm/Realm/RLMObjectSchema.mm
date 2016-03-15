@@ -29,19 +29,19 @@
 #import "RLMUtil.hpp"
 
 #import "object_store.hpp"
+#import <realm/group.hpp>
 
 using namespace realm;
 
 // private properties
 @interface RLMObjectSchema ()
-@property (nonatomic, readwrite) NSDictionary RLM_GENERIC(id, RLMProperty *) *propertiesByName;
-@property (nonatomic, readwrite) NSString *className;
+@property (nonatomic, readwrite) NSDictionary *propertiesByName;
+@property (nonatomic, readwrite, assign) NSString *className;
 @end
 
 @implementation RLMObjectSchema {
     // table accessor optimization
     realm::TableRef _table;
-    NSArray *_propertiesInDeclaredOrder;
 }
 
 - (instancetype)initWithClassName:(NSString *)objectClassName objectClass:(Class)objectClass properties:(NSArray *)properties {
@@ -49,8 +49,6 @@ using namespace realm;
     self.className = objectClassName;
     self.properties = properties;
     self.objectClass = objectClass;
-    self.accessorClass = objectClass;
-    self.standaloneClass = objectClass;
     return self;
 }
 
@@ -70,7 +68,6 @@ using namespace realm;
         }
     }
     _propertiesByName = map;
-    _propertiesInDeclaredOrder = nil;
 }
 
 - (void)setPrimaryKeyProperty:(RLMProperty *)primaryKeyProperty {
@@ -102,10 +99,6 @@ using namespace realm;
         cls = superClass;
         superClass = class_getSuperclass(superClass);
     }
-    NSUInteger index = 0;
-    for (RLMProperty *prop in props) {
-        prop.declarationIndex = index++;
-    }
     schema.properties = props;
 
     // verify that we didn't add any properties twice due to inheritance
@@ -116,9 +109,9 @@ using namespace realm;
         }]];
 
         if (duplicatePropertyNames.count == 1) {
-            @throw RLMException(@"Property '%@' is declared multiple times in the class hierarchy of '%@'", duplicatePropertyNames.allObjects.firstObject, className);
+            @throw RLMException([NSString stringWithFormat:@"Property '%@' is declared multiple times in the class hierarchy of '%@'", duplicatePropertyNames.allObjects.firstObject, className]);
         } else {
-            @throw RLMException(@"Object '%@' has properties that are declared multiple times in its class hierarchy: '%@'", className, [duplicatePropertyNames.allObjects componentsJoinedByString:@"', '"]);
+            @throw RLMException([NSString stringWithFormat:@"Object '%@' has properties that are declared multiple times in its class hierarchy: '%@'", className, [duplicatePropertyNames.allObjects componentsJoinedByString:@"', '"]]);
         }
     }
 
@@ -132,7 +125,9 @@ using namespace realm;
         }
 
         if (!schema.primaryKeyProperty) {
-            @throw RLMException(@"Primary key property '%@' does not exist on object '%@'", primaryKey, className);
+            NSString *message = [NSString stringWithFormat:@"Primary key property '%@' does not exist on object '%@'",
+                                 primaryKey, className];
+            @throw RLMException(message);
         }
         if (schema.primaryKeyProperty.type != RLMPropertyTypeInt && schema.primaryKeyProperty.type != RLMPropertyTypeString) {
             @throw RLMException(@"Only 'string' and 'int' properties can be designated the primary key");
@@ -146,7 +141,7 @@ using namespace realm;
             if (prop.type == RLMPropertyTypeAny && isSwift) {
                 error = [error stringByAppendingString:@"\nIf this is a 'String?' property, it must be declared as 'NSString?' instead."];
             }
-            @throw RLMException(@"%@", error);
+            @throw RLMException(error);
         }
     }
 
@@ -154,7 +149,7 @@ using namespace realm;
 }
 
 + (NSArray *)propertiesForClass:(Class)objectClass isSwift:(bool)isSwiftClass {
-    Class objectUtil = [objectClass objectUtilClass:isSwiftClass];
+    Class objectUtil = RLMObjectUtilClass(isSwiftClass);
     NSArray *ignoredProperties = [objectUtil ignoredPropertiesForClass:objectClass];
 
     // For Swift classes we need an instance of the object when parsing properties
@@ -207,14 +202,11 @@ using namespace realm;
         }
     }
 
-    if (auto optionalProperties = [objectUtil getOptionalProperties:swiftObjectInstance]) {
+    if (NSDictionary *optionalProperties = [objectUtil getOptionalProperties:swiftObjectInstance]) {
         for (RLMProperty *property in propArray) {
             property.optional = false;
         }
         [optionalProperties enumerateKeysAndObjectsUsingBlock:^(NSString *propertyName, NSNumber *propertyType, __unused BOOL *stop) {
-            if ([ignoredProperties containsObject:propertyName]) {
-                return;
-            }
             NSUInteger existing = [propArray indexOfObjectPassingTest:^BOOL(RLMProperty *obj, __unused NSUInteger idx, __unused BOOL *stop) {
                 return [obj.name isEqualToString:propertyName];
             }];
@@ -225,10 +217,7 @@ using namespace realm;
             }
             if (auto type = RLMCoerceToNil(propertyType)) {
                 if (existing == NSNotFound) {
-                    property = [[RLMProperty alloc] initSwiftOptionalPropertyWithName:propertyName
-                                                                              indexed:[indexed containsObject:propertyName]
-                                                                                 ivar:class_getInstanceVariable(objectClass, propertyName.UTF8String)
-                                                                         propertyType:RLMPropertyType(type.intValue)];
+                    property = [[RLMProperty alloc] initSwiftOptionalPropertyWithName:propertyName ivar:class_getInstanceVariable(objectClass, propertyName.UTF8String) propertyType:RLMPropertyType(type.intValue)];
                     [propArray addObject:property];
                 }
                 else {
@@ -237,12 +226,13 @@ using namespace realm;
             }
         }];
     }
-    if (auto requiredProperties = [objectUtil requiredPropertiesForClass:objectClass]) {
+    if (NSArray *requiredProperties = [objectUtil requiredPropertiesForClass:objectClass]) {
         for (RLMProperty *property in propArray) {
             bool required = [requiredProperties containsObject:property.name];
             if (required && property.type == RLMPropertyTypeObject) {
-                @throw RLMException(@"Object properties cannot be made required, "
-                                    "but '+[%@ requiredProperties]' included '%@'", objectClass, property.name);
+                NSString *error = [NSString stringWithFormat:@"Object properties cannot be made required, " \
+                                                              "but '+[%@ requiredProperties]' included '%@'", objectClass, property.name];
+                @throw RLMException(error);
             }
             property.optional &= !required;
         }
@@ -250,7 +240,8 @@ using namespace realm;
 
     for (RLMProperty *property in propArray) {
         if (!property.optional && property.type == RLMPropertyTypeObject) { // remove if/when core supports required link columns
-            @throw RLMException(@"The `%@.%@` property must be marked as being optional.", [objectClass className], property.name);
+            NSString *message = [NSString stringWithFormat:@"The `%@.%@` property must be marked as being optional.", [objectClass className], property.name];
+            @throw RLMException(message);
         }
     }
 
@@ -370,7 +361,8 @@ using namespace realm;
         NSString *primaryKeyString = [NSString stringWithUTF8String:objectSchema.primary_key.c_str()];
         schema.primaryKeyProperty = schema[primaryKeyString];
         if (!schema.primaryKeyProperty) {
-            @throw RLMException(@"No property matching primary key '%@'", primaryKeyString);
+            NSString *reason = [NSString stringWithFormat:@"No property matching primary key '%@'", primaryKeyString];
+            @throw RLMException(reason);
         }
     }
 
@@ -382,24 +374,7 @@ using namespace realm;
     return schema;
 }
 
-- (void)sortPropertiesByColumn {
-    _properties = [_properties sortedArrayUsingComparator:^NSComparisonResult(RLMProperty *p1, RLMProperty *p2) {
-        if (p1.column < p2.column) return NSOrderedAscending;
-        if (p1.column > p2.column) return NSOrderedDescending;
-        return NSOrderedSame;
-    }];
-    // No need to update the dictionary
-}
-
-- (NSArray *)propertiesInDeclaredOrder {
-    if (!_propertiesInDeclaredOrder) {
-        _propertiesInDeclaredOrder = [_properties sortedArrayUsingComparator:^NSComparisonResult(RLMProperty *p1, RLMProperty *p2) {
-            if (p1.declarationIndex < p2.declarationIndex) return NSOrderedAscending;
-            if (p1.declarationIndex > p2.declarationIndex) return NSOrderedDescending;
-            return NSOrderedSame;
-        }];
-    }
-    return _propertiesInDeclaredOrder;
-}
 
 @end
+
+
