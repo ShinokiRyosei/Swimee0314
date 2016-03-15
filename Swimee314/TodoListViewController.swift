@@ -35,7 +35,7 @@ class TodoListViewController: UIViewController,UITableViewDelegate, UITableViewD
             self.view.backgroundColor = backgroundColor
             
             //navigationvarの色指定
-            self.navigationController?.navigationBar.backgroundColor = pinkColor
+            self.navigationController?.navigationBar.barTintColor = pinkColor
 
             // Status Barの高さを取得する.
             let barHeight: CGFloat = UIApplication.sharedApplication().statusBarFrame.size.height
@@ -111,7 +111,8 @@ class TodoListViewController: UIViewController,UITableViewDelegate, UITableViewD
             myTableView.reloadData()
             
             //textFieldの中の文字を消す
-            
+            textField.text = ""
+    
             return true
         }
         
