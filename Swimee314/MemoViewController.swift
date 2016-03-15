@@ -24,8 +24,6 @@ class MemoViewController: UIViewController, UITextViewDelegate,UIScrollViewDeleg
         // Do any additional setup after loading the view.
         contentTextView.delegate = self //デリゲート設定
         self.frameView = UIView(frame: CGRectMake(0, 0, self.view.bounds.width, self.view.bounds.height))
-        // Keyboard stuff.
-
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
