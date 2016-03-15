@@ -14,24 +14,18 @@ class MemoViewController: UIViewController, UITextViewDelegate {
     @IBOutlet var contentTextView:UITextView!
     @IBOutlet var addScroll: UIScrollView!
     
-    var txtActiveField: UITextView! //編集後のtextFieldを新しく格納する変数を定義
-    
+    var frameView: UIView!
     let realm = try! Realm()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         contentTextView.delegate = self //デリゲート設定
-    }
-    // Viewが画面に表示される度に呼ばれるメソッド
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        contentTextView.resignFirstResponder()
-        
-        // NSNotificationCenterへの登録処理
-        let notificationCenter = NSNotificationCenter.defaultCenter()
-        notificationCenter.addObserver(self, selector: "handleKeyboardWillShowNotification:", name: UIKeyboardWillShowNotification, object: nil)
-        notificationCenter.addObserver(self, selector: "handleKeyboardWillHideNotification:", name: UIKeyboardWillHideNotification, object: nil)
+        self.frameView = UIView(frame: CGRectMake(0, 0, self.view.bounds.width, self.view.bounds.height))
+        // Keyboard stuff.
+        let center: NSNotificationCenter = NSNotificationCenter.defaultCenter()
+        center.addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
+        center.addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -47,18 +41,34 @@ class MemoViewController: UIViewController, UITextViewDelegate {
         notificationCenter.removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
     }
     
-    //画面がタップされた際にキーボードを閉じる処理
-    func tapGesture(sender: UITapGestureRecognizer) {
-        contentTextView.resignFirstResponder()
+    func keyboardWillShow(notification: NSNotification) {
+        let info:NSDictionary = notification.userInfo!
+        let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as! NSValue).CGRectValue()
+        
+        let keyboardHeight: CGFloat = keyboardSize.height
+        
+        let _: CGFloat = info[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber as CGFloat
+        
+        
+        UIView.animateWithDuration(0.25, delay: 0.25, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
+            self.frameView.frame = CGRectMake(0, (self.frameView.frame.origin.y - keyboardHeight), self.view.bounds.width, self.view.bounds.height)
+            }, completion: nil)
+        
     }
     
-    //キーボードのreturnが押された際にキーボードを閉じる処理
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        contentTextView.resignFirstResponder()
-        //itemMemo.resignFirstResponder()
-        return true
+    func keyboardWillHide(notification: NSNotification) {
+        let info: NSDictionary = notification.userInfo!
+        let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as! NSValue).CGRectValue()
+        
+        let keyboardHeight: CGFloat = keyboardSize.height
+        
+        let _: CGFloat = info[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber as CGFloat
+        
+        UIView.animateWithDuration(0.25, delay: 0.25, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
+            self.frameView.frame = CGRectMake(0, (self.frameView.frame.origin.y + keyboardHeight), self.view.bounds.width, self.view.bounds.height)
+            }, completion: nil)
+        
     }
-    
     @IBAction func saveMemo(){
         guard let text = contentTextView.text else { return }
         let myMemo = Memo()
@@ -67,6 +77,11 @@ class MemoViewController: UIViewController, UITextViewDelegate {
             realm.add(myMemo)
         }
     }
+    //ずらした分を戻す処理
+    func handleKeyboardWillHideNotification(notification: NSNotification) {
+        addScroll.contentOffset.y = 0
+    }
+    
     func textViewDidEndEditing(textView: UITextView) {
         textView.resignFirstResponder()
     }
