@@ -15,8 +15,15 @@ class ScheduleListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.tableView.registerNib(UINib(nibName: "", bundle: nil), forCellReuseIdentifier: "")
+        self.tableView.registerNib(UINib(nibName: "ScheduleListTableViewCell", bundle: nil), forCellReuseIdentifier: "ScheduleListCell")
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
