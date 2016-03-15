@@ -13,6 +13,8 @@ static const float CTCheckboxDefaultSideLength = 20.0;
 @interface CTCheckbox ()
 @property (nonatomic, strong) NSMutableDictionary *colorDictionary;
 @property (nonatomic, strong) NSMutableDictionary *backgroundColorDictionary;
+@property (nonatomic, strong) IBOutlet CTCheckbox *checkbox;
+
 @end
 
 @implementation CTCheckbox
@@ -50,6 +52,8 @@ static const float CTCheckboxDefaultSideLength = 20.0;
     [self addObserver:self forKeyPath:@"enabled" options:NSKeyValueObservingOptionNew context:nil];
     [self addObserver:self forKeyPath:@"selected" options:NSKeyValueObservingOptionNew context:nil];
     [self addObserver:self forKeyPath:@"highlighted" options:NSKeyValueObservingOptionNew context:nil];
+    [self.checkbox addTarget:self action:@selector(checkboxDidChange:) forControlEvents:UIControlEventValueChanged];
+    
 }
 
 - (void)dealloc
@@ -89,7 +93,7 @@ static const float CTCheckboxDefaultSideLength = 20.0;
     }
   
     if (!color) {
-        color = [UIColor blackColor];
+        color = [UIColor colorWithRed:70/255 green:70/255 blue:70/255 alpha:1.0];
     }
 
     self.checkboxColor = color;
@@ -228,5 +232,12 @@ static const float CTCheckboxDefaultSideLength = 20.0;
         self.checked = !self.checked;
     }
 }
+
+
+- (void)checkboxDidChange:(CTCheckbox *)checkbox
+{
+    NSLog(@"%d", checkbox.checked);
+}
+
 
 @end
