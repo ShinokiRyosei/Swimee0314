@@ -20,16 +20,16 @@
 
 RLM_ASSUME_NONNULL_BEGIN
 
-@class RLMRealm, RLMResults, RLMObject, RLMSortDescriptor, RLMNotificationToken;
+@class RLMRealm, RLMResults, RLMObject;
 
-/**
- A homogenous collection of `RLMObject`s like `RLMArray` or `RLMResults`.
- */
 @protocol RLMCollection <NSFastEnumeration>
 
 @required
 
-#pragma mark - Properties
+/**---------------------------------------------------------------------------------------
+ *  @name RLMCollection Properties
+ *  ---------------------------------------------------------------------------------------
+ */
 
 /**
  Number of objects in the collection.
@@ -46,14 +46,19 @@ RLM_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, readonly) RLMRealm *realm;
 
-#pragma mark - Accessing Objects from a Collection
+#pragma mark -
+
+/**---------------------------------------------------------------------------------------
+ *  @name Accessing Objects from a Collection
+ * ---------------------------------------------------------------------------------------
+ */
 
 /**
  Returns the object at the index specified.
  
  @param index   The index to look up.
  
- @return An RLMObject of the type contained in this RLMCollection.
+ @return An RLMObject of the class contained by this RLMCollection.
  */
 - (id)objectAtIndex:(NSUInteger)index;
 
@@ -62,7 +67,7 @@ RLM_ASSUME_NONNULL_BEGIN
  
  Returns `nil` if called on an empty RLMCollection.
  
- @return An RLMObject of the type contained in this RLMCollection.
+ @return An RLMObject of the class contained by this RLMCollection.
  */
 - (nullable id)firstObject;
 
@@ -71,11 +76,16 @@ RLM_ASSUME_NONNULL_BEGIN
  
  Returns `nil` if called on an empty RLMCollection.
  
- @return An RLMObject of the type contained in this RLMCollection.
+ @return An RLMObject of the class contained by this RLMCollection.
  */
 - (nullable id)lastObject;
 
-#pragma mark - Querying a Collection
+#pragma mark -
+
+/**---------------------------------------------------------------------------------------
+ *  @name Querying a Collection
+ *  ---------------------------------------------------------------------------------------
+ */
 
 /**
  Gets the index of an object.
@@ -95,9 +105,6 @@ RLM_ASSUME_NONNULL_BEGIN
  */
 - (NSUInteger)indexOfObjectWhere:(NSString *)predicateFormat, ...;
 
-/// :nodoc:
-- (NSUInteger)indexOfObjectWhere:(NSString *)predicateFormat args:(va_list)args;
-
 /**
  Gets the index of the first object matching the predicate.
  
@@ -115,9 +122,6 @@ RLM_ASSUME_NONNULL_BEGIN
  @return    An RLMResults of objects that match the given predicate
  */
 - (RLMResults *)objectsWhere:(NSString *)predicateFormat, ...;
-
-/// :nodoc:
-- (RLMResults *)objectsWhere:(NSString *)predicateFormat args:(va_list)args;
 
 /**
  Get objects matching the given predicate in the RLMCollection.
@@ -145,10 +149,13 @@ RLM_ASSUME_NONNULL_BEGIN
  
  @return    An RLMResults sorted by the specified properties.
  */
-- (RLMResults *)sortedResultsUsingDescriptors:(NSArray RLM_GENERIC(RLMSortDescriptor *) *)properties;
+- (RLMResults *)sortedResultsUsingDescriptors:(NSArray *)properties;
 
-/// :nodoc:
+#pragma mark -
+
 - (id)objectAtIndexedSubscript:(NSUInteger)index;
+
+#pragma mark -
 
 /**
  Returns an NSArray containing the results of invoking `valueForKey:` using key on each of the collection's objects.
@@ -168,16 +175,6 @@ RLM_ASSUME_NONNULL_BEGIN
  @param key   The name of the property.
  */
 - (void)setValue:(nullable id)value forKey:(NSString *)key;
-
-#pragma mark - Notifications
-
-/**
- Register a block to be called each time the collection changes.
-
- @param block The block to be called each time the collection changes.
- @return A token which must be held for as long as you want notifications to be delivered.
- */
-- (RLMNotificationToken *)addNotificationBlock:(void (^)(id<RLMCollection> collection))block RLM_WARN_UNUSED_RESULT;
 
 @end
 

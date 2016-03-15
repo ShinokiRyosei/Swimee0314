@@ -5,11 +5,11 @@ PODS:
   - PageMenu (1.2.9)
   - Parse (1.12.0):
     - Bolts/Tasks (~> 1.5)
-  - Realm (0.98.4):
-    - Realm/Headers (= 0.98.4)
-  - Realm/Headers (0.98.4)
-  - RealmSwift (0.98.4):
-    - Realm (= 0.98.4)
+  - Realm (0.96.0):
+    - Realm/Headers (= 0.96.0)
+  - Realm/Headers (0.96.0)
+  - RealmSwift (0.96.0):
+    - Realm (= 0.96.0)
   - SVProgressHUD (1.1.3)
 
 DEPENDENCIES:
@@ -17,7 +17,7 @@ DEPENDENCIES:
   - CTCheckbox
   - PageMenu
   - Parse
-  - RealmSwift
+  - RealmSwift (= 0.96.0)
   - SVProgressHUD
 
 SPEC CHECKSUMS:
@@ -26,8 +26,8 @@ SPEC CHECKSUMS:
   CTCheckbox: fec0e51c635ad555effd230a1fa186105010a382
   PageMenu: ba19ff267f7a19e444e93c20a7847b78954a7011
   Parse: de2c52a9a1421b91ae7594ab8ce191afd184f19b
-  Realm: 7745674cb1b7cb2a84a655bfd420b86efdaad36e
-  RealmSwift: 18742f4f13f98117aeec53b92058918ac93bf38f
+  Realm: d1b1eff5264cd6a3158b7a9b6c499d7f6ad3a860
+  RealmSwift: 40246e6f57a4e863bfdfc1ca1d7b967f0df607e2
   SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1
 
 COCOAPODS: 0.39.0
