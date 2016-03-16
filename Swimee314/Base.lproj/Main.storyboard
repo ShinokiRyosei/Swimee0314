@@ -115,11 +115,19 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="m8s-lE-WKd">
                                 <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XlM-LF-BOJ">
+                                <rect key="frame" x="254" y="481" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="pushDone" destination="bQe-K7-Gd0" eventType="touchUpInside" id="eOt-at-AzA"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="XGK-F1-28u"/>
                     <connections>
+                        <outlet property="doneButton" destination="XlM-LF-BOJ" id="QWU-Oc-TK5"/>
                         <outlet property="map" destination="m8s-lE-WKd" id="Cic-Xa-1fZ"/>
                         <outlet property="searchBar" destination="LJ4-hM-vFa" id="Guw-xT-9tx"/>
                     </connections>

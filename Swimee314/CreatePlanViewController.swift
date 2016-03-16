@@ -54,13 +54,15 @@ class CreatePlanViewController: UIViewController, UITextFieldDelegate, UIActionS
         
         SVProgressHUD.show()
         let data = TravelTitles(title: text)
-        
         data.saveInBackgroundWithBlock { (succeeded, error) -> Void in
             
             
             if !succeeded {
                 print("\(error?.localizedDescription)")
             }
+            
+            let defaults = NSUserDefaults.standardUserDefaults()
+            defaults.setObject(data.objectId, forKey: "objectId")
             
             SVProgressHUD.showSuccessWithStatus("作成完了")
             self.tabBarController?.selectedIndex = 2
