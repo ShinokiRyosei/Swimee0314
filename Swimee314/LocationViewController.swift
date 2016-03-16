@@ -56,17 +56,6 @@ class LocationViewController: UIViewController, UISearchBarDelegate, MKMapViewDe
         
     }
     
-    func setMapSettings(point: CLLocationCoordinate2D) {
-        let leastCoordSpan: Double = 0.005
-        let center = CLLocationCoordinate2DMake(point.latitude, point.latitude)
-        // 縮尺.
-        let latitudeDist : CLLocationDistance = 100
-        let lontitudeDist : CLLocationDistance = 100
-        
-        // Regionを作成.
-        let region: MKCoordinateRegion = MKCoordinateRegionMakeWithDistance(center, latitudeDist, lontitudeDist)
-        map.region = region
-    }
     
     @IBAction func pushDone() {
         let defaults = NSUserDefaults.standardUserDefaults()
@@ -83,6 +72,8 @@ class LocationViewController: UIViewController, UISearchBarDelegate, MKMapViewDe
                 }
             }
         }
+        
+        self.navigationController?.popViewControllerAnimated(true)
         
         
     }

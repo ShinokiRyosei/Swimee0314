@@ -88,13 +88,6 @@ class CreatePlanViewController: UIViewController, UITextFieldDelegate, UIActionS
         
         
     }
-    
-    
-    
-    
-    
-    
-    
 
 
 }

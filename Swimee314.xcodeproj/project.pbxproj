@@ -21,6 +21,7 @@
 		39470A4D1C988458002FE06F /* TravelTitlesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39470A4C1C988458002FE06F /* TravelTitlesModel.swift */; };
 		39470A4F1C988F09002FE06F /* TravelLocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39470A4E1C988F09002FE06F /* TravelLocationModel.swift */; };
 		39470A511C988FDF002FE06F /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39470A501C988FDF002FE06F /* LocationViewController.swift */; };
+		39470A531C98FFD0002FE06F /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39470A521C98FFD0002FE06F /* MapViewController.swift */; };
 		3E084DD11C9844F100B5FA14 /* TodoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E084DD01C9844F100B5FA14 /* TodoListViewController.swift */; };
 		4DDB26241C964ECF005A4EA2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDB26231C964ECF005A4EA2 /* AppDelegate.swift */; };
 		4DDB26261C964ECF005A4EA2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDB26251C964ECF005A4EA2 /* ViewController.swift */; };
@@ -73,6 +74,7 @@
 		39470A4C1C988458002FE06F /* TravelTitlesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravelTitlesModel.swift; sourceTree = "<group>"; };
 		39470A4E1C988F09002FE06F /* TravelLocationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravelLocationModel.swift; sourceTree = "<group>"; };
 		39470A501C988FDF002FE06F /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
+		39470A521C98FFD0002FE06F /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		3E084DD01C9844F100B5FA14 /* TodoListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoListViewController.swift; sourceTree = "<group>"; };
 		4DDB26201C964ECF005A4EA2 /* Swimee314.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swimee314.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DDB26231C964ECF005A4EA2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				3E084DD01C9844F100B5FA14 /* TodoListViewController.swift */,
 				394709C81C970120002FE06F /* CreatePlanViewController.swift */,
 				39470A501C988FDF002FE06F /* LocationViewController.swift */,
+				39470A521C98FFD0002FE06F /* MapViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -364,7 +367,6 @@
 				TargetAttributes = {
 					4DDB261F1C964ECF005A4EA2 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = 98NPPQ4964;
 					};
 					4DDB26331C964ECF005A4EA2 = {
 						CreatedOnToolsVersion = 7.2;
@@ -493,6 +495,7 @@
 				394709CB1C97490F002FE06F /* Alert.swift in Sources */,
 				4DDB26631C967A5B005A4EA2 /* README.md in Sources */,
 				394709C41C96C5F6002FE06F /* MemoModel.swift in Sources */,
+				39470A531C98FFD0002FE06F /* MapViewController.swift in Sources */,
 				394709C91C970120002FE06F /* CreatePlanViewController.swift in Sources */,
 				4DDB26641C967A5B005A4EA2 /* StoryboardHelper.swift in Sources */,
 				394709D01C97FD70002FE06F /* ScheduleListTableViewCell.swift in Sources */,
@@ -644,6 +647,7 @@
 			baseConfigurationReference = DA126B422DB9B400EECD2073 /* Pods-Swimee314.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Swimee314/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.litech.Swimee314;
@@ -656,6 +660,7 @@
 			baseConfigurationReference = AF91CE0863672BEBD68CFCC7 /* Pods-Swimee314.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Swimee314/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.litech.Swimee314;
